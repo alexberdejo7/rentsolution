@@ -1,0 +1,47 @@
+---
+// src/components/ContactSection.astro
+import ContactCard from './ContactCard.astro';
+
+// Íconos Lucide convertidos a SVG puro.
+const PhoneIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+`;
+const MailIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+`;
+const MapPinIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M12 12.8c-2.8 0-5.1-2.3-5.1-5.1S9.2 2.5 12 2.5s5.1 2.3 5.1 5.1-2.3 5.1-5.1 5.1zm0 0V22"/></svg>
+`;
+---
+<section id="contacto" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Contacto</h2>
+      <p class="text-xl text-gray-600">Estamos aquí para resolver todas tus dudas</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <ContactCard
+        iconHtml={PhoneIcon}
+        iconColor="text-blue-600"
+        title="Teléfono"
+        value="+52 55 1234 5678"
+        detail="Lun - Vie 9:00 - 18:00"
+      />
+      <ContactCard
+        iconHtml={MailIcon}
+        iconColor="text-amber-600"
+        title="Email"
+        value="info@juridicoseguro.mx"
+        detail="Respuesta en 24 hrs"
+      />
+      <ContactCard
+        iconHtml={MapPinIcon}
+        iconColor="text-blue-600"
+        title="Oficina"
+        value="Ciudad de México"
+        detail="Cobertura nacional"
+      />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+---
+// src/layouts/MainLayout.astro
+
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+    <SiteHeader />
+    <main class="flex-grow">
+        <slot /> </main>
+    <SiteFooter />
+</body>
+</html>

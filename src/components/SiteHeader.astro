@@ -1,0 +1,33 @@
+---
+// src/components/SiteHeader.astro
+// Íconos Lucide convertidos a SVG puro. Puedes buscar y reemplazar por los SVG originales.
+// Ejemplo para Shield:
+const ShieldIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+`;
+---
+<nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex items-center space-x-2">
+        <span class="h-8 w-8 text-blue-600" set:html={ShieldIcon}></span>
+        <a href="/" class="text-xl font-bold text-gray-900">JurídicoSeguro</a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#servicios" class="text-gray-700 hover:text-blue-600 transition-colors">
+          Servicios
+        </a>
+        <a href="#ventajas" class="text-gray-700 hover:text-blue-600 transition-colors">
+          Ventajas
+        </a>
+        <a href="#que-es" class="text-gray-700 hover:text-blue-600 transition-colors">
+          ¿Qué es?
+        </a>
+        <a href="#contacto" class="text-gray-700 hover:text-blue-600 transition-colors">
+          Contacto
+        </a>
+        <a href="#contacto" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white">Cotizar Ahora</a>
+      </div>
+    </div>
+  </div>
+</nav>

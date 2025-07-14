@@ -1,0 +1,89 @@
+---
+// src/components/AdvantagesSection.astro
+import FeatureItem from './FeatureItem.astro';
+
+// Íconos Lucide convertidos a SVG puro.
+const UsersIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+`;
+const CheckCircleIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+`;
+---
+<section id="ventajas" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">¿Por Qué Elegirnos?</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Somos líderes en protección jurídica inmobiliaria en México
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8">
+        <FeatureItem
+          number="1"
+          title="Experiencia Comprobada"
+          description="Más de 10 años protegiendo propietarios en México con un 98% de casos exitosos."
+        />
+        <FeatureItem
+          number="2"
+          numberBgColor="bg-amber-600"
+          title="Equipo Legal Especializado"
+          description="Abogados certificados en derecho inmobiliario mexicano disponibles 24/7."
+        />
+        <FeatureItem
+          number="3"
+          title="Proceso Transparente"
+          description="Seguimiento en tiempo real de tu caso con reportes detallados y comunicación constante."
+        />
+        <FeatureItem
+          number="4"
+          numberBgColor="bg-amber-600"
+          title="Cobertura Nacional"
+          description="Servicio disponible en toda la República Mexicana con red de abogados locales."
+        />
+      </div>
+
+      <div class="relative">
+        <div class="bg-gradient-to-br from-blue-100 to-amber-100 rounded-2xl p-8">
+          <div class="bg-white rounded-xl p-6 shadow-lg space-y-6">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <span class="w-8 h-8 text-blue-600" set:html={UsersIcon}></span>
+                <div>
+                  <div class="h-4 bg-gray-300 rounded w-20"></div>
+                  <div class="h-3 bg-gray-200 rounded w-16 mt-1"></div>
+                </div>
+              </div>
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <span class="w-6 h-6 text-green-600" set:html={CheckCircleIcon}></span>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <div class="h-3 bg-gray-200 rounded w-24"></div>
+                <div class="h-3 bg-blue-200 rounded w-16"></div>
+              </div>
+              <div class="flex justify-between items-center">
+                <div class="h-3 bg-gray-200 rounded w-32"></div>
+                <div class="h-3 bg-amber-200 rounded w-12"></div>
+              </div>
+              <div class="flex justify-between items-center">
+                <div class="h-3 bg-gray-200 rounded w-28"></div>
+                <div class="h-3 bg-green-200 rounded w-20"></div>
+              </div>
+            </div>
+
+            <div class="border-t pt-4">
+              <div class="flex justify-center">
+                <div class="h-8 bg-blue-600 rounded w-32"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

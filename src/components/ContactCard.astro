@@ -1,0 +1,18 @@
+---
+// src/components/ContactCard.astro
+interface Props {
+  iconHtml: string;
+  iconColor: string;
+  title: string;
+  value: string;
+  detail?: string;
+}
+
+const { iconHtml, iconColor, title, value, detail } = Astro.props;
+---
+<div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
+  <div class={`w-12 h-12 ${iconColor} mx-auto mb-4`} set:html={iconHtml}></div>
+  <h3 class="text-lg font-semibold mb-2">{title}</h3>
+  <p class="text-gray-600">{value}</p>
+  {detail && <p class="text-sm text-gray-500 mt-1">{detail}</p>}
+</div>

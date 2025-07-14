@@ -1,0 +1,72 @@
+---
+// src/components/WhatIsSection.astro
+import FeatureItem from './FeatureItem.astro';
+
+// Íconos Lucide convertidos a SVG puro.
+const ScaleIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale"><path d="m16 16 3-3-3-3"/><path d="M16 20V4"/><path d="M8 8H4v8h4"/><path d="M12 2v20"/></svg>
+`;
+const FileTextIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+`;
+const ClockIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+`;
+---
+<section id="que-es" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        ¿Qué es una Póliza Jurídica de Arrendamiento?
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Una póliza jurídica es tu escudo legal que te protege contra los riesgos más comunes del arrendamiento de
+        propiedades en México.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <FeatureItem
+          iconHtml={ScaleIcon}
+          title="Protección Legal Integral"
+          description="Cobertura completa contra impagos de renta, daños a la propiedad, procesos de desalojo y gastos legales asociados."
+        />
+        <FeatureItem
+          iconHtml={FileTextIcon}
+          title="Respaldo Jurídico Especializado"
+          description="Equipo de abogados especializados en derecho inmobiliario mexicano que manejan tu caso de principio a fin."
+          bgColor="bg-amber-100"
+          iconColor="text-amber-600"
+        />
+        <FeatureItem
+          iconHtml={ClockIcon}
+          title="Respuesta Inmediata"
+          description="Activación de la póliza en menos de 24 horas y seguimiento constante de tu caso hasta su resolución."
+        />
+      </div>
+
+      <div class="bg-gray-100 rounded-2xl p-8">
+        <div class="bg-white rounded-xl p-6 shadow-lg">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="h-4 bg-gray-300 rounded w-32"></div>
+              <div class="w-8 h-8 bg-blue-200 rounded-full"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="h-3 bg-gray-200 rounded"></div>
+              <div class="h-3 bg-gray-200 rounded w-4/5"></div>
+              <div class="h-3 bg-gray-200 rounded w-3/5"></div>
+            </div>
+            <div class="border-t pt-4">
+              <div class="flex justify-between items-center">
+                <div class="h-6 bg-blue-200 rounded w-24"></div>
+                <div class="h-6 bg-amber-200 rounded w-20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
