@@ -1,87 +1,66 @@
 ---
-// src/components/HeroSection.astro
 // Íconos Lucide convertidos a SVG puro.
-const ShieldIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-`;
-const ArrowRightIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-`;
-const HomeIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-`;
+const ShieldIcon = ``;
+const ArrowRightIcon = `...`;
+const HomeIcon = `...`;
 ---
-<section class="pt-16 pb-20 bg-gradient-to-br from-blue-50 via-white to-amber-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="relative pt-16 pb-20 bg-[#102c54] text-white overflow-hidden">
+  <!-- Gradiente sutil de abajo hacia arriba -->
+ <div class="absolute inset-0 bg-gradient-to-t from-[#1F3044]/20 to-transparent"></div>
+
+  <!-- Contenido principal -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
+      
+      <!-- Texto -->
       <div class="space-y-8">
         <div class="space-y-4">
-          <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">
-            <span class="w-4 h-4 mr-2" set:html={ShieldIcon}></span>
+          <div class="inline-flex items-center px-2 py-1 rounded-full bg-amber-500 text-blue-200 text-sm font-medium">
+            <span class="w-4 h-4 " ></span>
             Protección Legal Garantizada
           </div>
-          <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-            Pólizas Jurídicas de <span class="text-blue-600">Arrendamiento</span> en México
+          <h1 class="text-4xl lg:text-6xl font-bold text-white leading-tight">
+            Pólizas Jurídicas de <span class="text-amber-400">Arrendamiento</span> en México
           </h1>
-          <p class="text-xl text-gray-600 leading-relaxed">
-            Protege tu inversión inmobiliaria con nuestras pólizas jurídicas especializadas. Cobertura completa
-            contra impagos, desalojos y problemas legales.
+          <p class="text-xl text-blue-100 leading-relaxed">
+            Polizas juridicas especializadas en arrendamiento con asesoria legal completa. Tu tranquilidad es nuestra prioridad.
           </p>
         </div>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#contacto" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-lg font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-12 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white group">
-            Obtener Cotización
+          <a href="#contacto" class="inline-flex items-center justify-center rounded-md text-lg font-medium h-12 px-6 py-2 bg-gold-400 hover:bg-amber-400 text-white group shadow-md">
+            Obtener Poliza
             <span class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" set:html={ArrowRightIcon}></span>
           </a>
-          <a href="#servicios" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-lg font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-12 px-6 py-2 border border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent">
+          <a href="#servicios" class="inline-flex items-center justify-center rounded-md text-lg font-medium h-12 px-6 py-2 border border-white/30 text-white hover:bg-white/10 bg-transparent shadow-sm">
             Ver Servicios
           </a>
         </div>
-        <div class="flex items-center space-x-8 pt-4">
+        <div class="flex items-center space-x-8 pt-4 text-blue-100">
           <div class="text-center">
-            <div class="text-2xl font-bold text-blue-600">500+</div>
-            <div class="text-sm text-gray-600">Propietarios Protegidos</div>
+            <div class="text-2xl font-bold text-amber-400">500+</div>
+            <div class="text-sm">Propietarios Protegidos</div>
           </div>
           <div class="text-center">
-            <div class="text-2xl font-bold text-amber-600">98%</div>
-            <div class="text-sm text-gray-600">Casos Exitosos</div>
+            <div class="text-2xl font-bold text-white">98%</div>
+            <div class="text-sm">Casos Exitosos</div>
           </div>
           <div class="text-center">
-            <div class="text-2xl font-bold text-blue-600">24/7</div>
-            <div class="text-sm text-gray-600">Soporte Legal</div>
+            <div class="text-2xl font-bold text-amber-400">24/7</div>
+            <div class="text-sm">Soporte Legal</div>
           </div>
         </div>
       </div>
 
-<!-- Imagen  -->
-      <div class="relative group w-full max-w-md mx-auto lg:mx-0">
-  <div class="relative bg-gradient-to-br from-blue-200 via-white to-amber-100 shadow-2xl rounded-3xl p-8 transform group-hover:rotate-0 rotate-2 transition-transform duration-700">
-    <div class="flex flex-col items-center space-y-6">
-      <!-- Casa -->
-      <div class="relative w-32 h-32">
-        <!-- Techo -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[64px] border-l-transparent border-r-[64px] border-r-transparent border-b-[64px] border-b-blue-500"></div>
-        <!-- Cuerpo -->
-        <div class="absolute top-16 left-1/2 -translate-x-1/2 w-32 h-32 bg-white border-4 border-blue-500 rounded-md shadow-md"></div>
-        <!-- Puerta -->
-        <div class="absolute top-28 left-1/2 -translate-x-1/2 w-10 h-14 bg-amber-400 rounded-sm shadow-inner"></div>
+      <!-- Imagen decorativa -->
+      <div class="w-full">
+        <img 
+          src="/images/heros.png" 
+          alt="Protección Legal" 
+          class="w-90 h-90 max-w-md mx-auto lg:max-w-full rounded-xl "
+          loading="lazy"
+        />
       </div>
 
-      <!-- Llave -->
-      <div class="flex items-center space-x-2">
-        <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg animate-bounce">
-          🔑
-        </div>
-        <span class="text-blue-800 font-semibold">Llave de tu seguridad</span>
-      </div>
-
-      <!-- Texto decorativo -->
-      <div class="text-center">
-        <p class="text-blue-600 text-lg font-bold">Tu patrimonio, siempre protegido</p>
-        <p class="text-gray-600 text-sm">Diseñado para propietarios exigentes</p>
-      </div>
     </div>
   </div>
-</div>
-
 </section>

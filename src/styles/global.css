@@ -1,1 +1,11 @@
+/* global.css */
 @import "tailwindcss";
+
+@theme {
+  /* Define tu color azul-primario */
+  --color-azul-primario: #007bff; /* Un azul vibrante */
+  --color-azul-secundario: #6c757d; /* Un gris azulado */
+  --color-mi-verde: #28a745; /* Otro color, por ejemplo */
+}
+
+/* Puedes agregar aquí tus estilos base adicionales si los necesitas */

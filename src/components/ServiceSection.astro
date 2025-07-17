@@ -1,16 +1,15 @@
 ---
-// src/components/ServicesSection.astro
 import ServiceCard from './ServiceCard.astro';
 
 // Íconos Lucide convertidos a SVG puro.
 const ShieldIcon = `
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
 `;
-const ScaleIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale"><path d="m16 16 3-3-3-3"/><path d="M16 20V4"/><path d="M8 8H4v8h4"/><path d="M12 2v20"/></svg>
+const SearchIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
 `;
-const HomeIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+const ScaleIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale"><path d="m16 16 3-8 3 8c0 1-1 2-2 2s-2-1-2-2Z"/><path d="m8 16 3-8 3 8c0 1-1 2-2 2s-2-1-2-2Z"/><path d="M7 21h10"/><path d="M12 3v18"/></svg>
 `;
 ---
 <section id="servicios" class="py-20 bg-gray-50">
@@ -18,7 +17,7 @@ const HomeIcon = `
     <div class="text-center mb-16">
       <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Nuestros Servicios</h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Cobertura completa para todos los aspectos legales de tu propiedad en arrendamiento
+        Protección jurídica integral para propietarios en procesos de arrendamiento
       </p>
     </div>
 
@@ -27,38 +26,45 @@ const HomeIcon = `
         iconHtml={ShieldIcon}
         iconBgColor="bg-blue-100"
         iconColor="text-blue-600"
-        title="Cobertura por Impago"
-        description="Protección completa contra la falta de pago de rentas mensuales"
+        title="Pólizas Jurídicas"
+        description="Protección integral para propietarios y arrendatarios con cobertura completa"
         features={[
-          "Hasta 12 meses de renta",
-          "Gastos de cobranza incluidos",
-          "Sin deducibles"
+          "Falta de pagos cubierta",
+          "Daños contra el patrimonio",
+          "Protección al arrendatario incluida"
+        ]}
+      />
+      <ServiceCard
+        iconHtml={SearchIcon}
+        iconBgColor="bg-green-100"
+        iconColor="text-green-600"
+        title="Investigación de Inquilino y Obligado Solidario"
+        description="Verificación exhaustiva para garantizar la seguridad de tu inversión"
+        features={[
+          "Historial crediticio detallado",
+          "Análisis del historial de arrendamientos previos",
+          "Análisis de solvencia económica"
         ]}
       />
       <ServiceCard
         iconHtml={ScaleIcon}
         iconBgColor="bg-amber-100"
         iconColor="text-amber-600"
-        title="Proceso de Desalojo"
-        description="Manejo completo del proceso legal de desalojo"
+        title="Resolución de Conflictos"
+        description="Manejo especializado de disputas legales y procesos de recuperación"
         features={[
-          "Abogados especializados",
-          "Todos los gastos legales",
-          "Seguimiento personalizado"
-        ]}
-      />
-      <ServiceCard
-        iconHtml={HomeIcon}
-        iconBgColor="bg-blue-100"
-        iconColor="text-blue-600"
-        title="Daños a la Propiedad"
-        description="Cobertura por daños causados por inquilinos"
-        features={[
-          "Evaluación profesional",
-          "Reparaciones cubiertas",
-          "Red de proveedores"
+          "Trámites de desocupación y entrega",
+          "Mediación y arbitraje",
+          "Recuperación judicial de adeudos"
         ]}
       />
     </div>
   </div>
 </section>
+
+<div class="w-full h-20 bg-black text-white  text-center py-3 px-4">
+  <p class=" text-balance mx-auto m-2 p-2 sm:text-base text-5xl font-extrabold line-clamp-2 tracking-wide">
+    Descubre la seguridad y confianza que una póliza jurídica integral 
+    puede ofrecer en el mundo del arrendamiento.
+  </p>
+</div>
