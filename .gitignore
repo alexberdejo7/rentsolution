@@ -13,6 +13,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+
+# Ignorar la carpeta de archivos generados por Vite dentro de public/images
+/public/images/doc_files/
+
 # environment variables
 .env
 .env.production

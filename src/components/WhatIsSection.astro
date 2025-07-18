@@ -1,10 +1,16 @@
 ---
 // src/components/WhatIsSection.astro
-import FeatureItem from './FeatureItem.astro';
 
-// Íconos Lucide convertidos a SVG puro.
-const ScaleIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale"><path d="m16 16 3-3-3-3"/><path d="M16 20V4"/><path d="M8 8H4v8h4"/><path d="M12 2v20"/></svg>
+// Tus Íconos Lucide originales
+const KeyIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+    viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+    class="lucide lucide-key">
+    <circle cx="7.5" cy="15.5" r="5.5" />
+    <path d="m21 2-9.6 9.6" />
+    <path d="m15.5 7.5 3 3L22 7l-3-3" />
+  </svg>
 `;
 const FileTextIcon = `
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
@@ -12,13 +18,37 @@ const FileTextIcon = `
 const ClockIcon = `
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
 `;
+
+// Arrays para manejar dinámicamente los colores de borde y fondo de icono
+const featureColors = [
+  { border: 'border-azul-primario', iconBg: 'bg-azul-primario/10', iconColor: 'text-azul-primario' },
+  { border: 'border-dorado-secundario', iconBg: 'bg-dorado-secundario/10', iconColor: 'text-dorado-secundario' },
+  { border: 'border-azul-dos', iconBg: 'bg-azul-dos/10', iconColor: 'text-azul-dos' },
+];
+
+const featureIcons = [KeyIcon, FileTextIcon, ClockIcon];
+
+const featureData = [
+  {
+    title: "Prevención Jurídica Inteligente",
+    description: "Antes de firmar cualquier contrato, realizamos una investigación legal completa. Garantizando la seguridad jurídica y confianza en cada contrato de arrendamiento."
+  },
+  {
+    title: "Evaluación y Protección Legal",
+    description: "Incluimos cláusulas y medidas que blindan tu propiedad ante impagos, daños, ocupaciones ilegales o juicios innecesarios. Especializados en derecho inmobiliario mexicano que manejan tu caso de principio a fin."
+  },
+  {
+    title: "Respuesta Inmediata",
+    description: "No solo firmamos: estamos contigo todo el proceso. Desde la firma del contrato hasta su finalización, cuentas con un equipo legal especializado disponible en todo momento para apoyarte ante cualquier conflicto."
+  },
+];
 ---
 
-<section id="que-es" class="py-20 bg-white">
+<section id="que-es" class="py-20 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-        ¿Como te protege una Póliza Jurídica de Arrendamiento?
+        ¿Cómo te protege una <span class="text-azul-primario">Póliza Jurídica de Arrendamiento</span>?
       </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
         Una póliza jurídica es tu escudo legal que te protege contra los riesgos más comunes del arrendamiento de
@@ -28,66 +58,46 @@ const ClockIcon = `
 
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <div class="space-y-6">
-        <FeatureItem
-          iconHtml={ScaleIcon}
-          title="Prevención Jurídica Inteligente"
-          description="Antes de firmar cualquier contrato, realizamos una investigación legal completa. Garantizando la seguridad jurídica y confianza en cada contrato de arrendamiento"
-        />
-        <FeatureItem
-          iconHtml={FileTextIcon}
-          title="Evaluación y Protección Legal"
-          description="Incluimos cláusulas y medidas que blindan tu propiedad ante impagos, daños, ocupaciones ilegales o juicios innecesarios. Especializados en derecho inmobiliario mexicano que manejan tu caso de principio a fin."
-          bgColor="bg-amber-100"
-          iconColor="text-amber-600"
-        />
-        <FeatureItem
-          iconHtml={ClockIcon}
-          title="Respuesta Inmediata"
-          description="No solo firmamos: estamos contigo todo el proceso. Desde la firma del contrato hasta su finalización, cuentas con un equipo legal especializado disponible en todo momento para apoyarte ante cualquier conflicto."
-        />
-      </div>
-
-
-
-      
-
-      <div class="bg-gray-100 rounded-2xl p-8">
-        <div class="bg-white rounded-xl p-6 shadow-lg">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <div class="h-4 bg-gray-300 rounded w-32"></div>
-              <div class="w-8 h-8 bg-blue-200 rounded-full"></div>
-            </div>
-            <div class="space-y-2">
-              <div class="h-3 bg-gray-200 rounded"></div>
-              <div class="h-3 bg-gray-200 rounded w-4/5"></div>
-              <div class="h-3 bg-gray-200 rounded w-3/5"></div>
-            </div>
-            <div class="border-t pt-4">
-              <div class="flex justify-between items-center">
-                <div class="h-6 bg-blue-200 rounded w-24"></div>
-                <div class="h-6 bg-amber-200 rounded w-20"></div>
+        {featureData.map((feature, index) => {
+          const color = featureColors[index % featureColors.length];
+          const icon = featureIcons[index % featureIcons.length];
+          return (
+            <div class={`bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 ${color.border}`}>
+              <div class="flex items-start space-x-4">
+                {/* Aquí el cambio: el color del icono se aplica al contenedor, no modificando el SVG directamente */}
+                <div class={`flex-shrink-0 w-12 h-12 ${color.iconBg} rounded-lg flex items-center justify-center ${color.iconColor}`}>
+                  <Fragment set:html={icon} />
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                    {feature.title}
+                  </h3>
+                  <p class="text-gray-600 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          );
+        })}
+      </div>
+
+      <div class="hidden lg:flex items-center justify-center p-8 bg-azul-dos/5 rounded-2xl shadow-xl min-h-[400px] relative overflow-hidden border border-azul-dos/10">
+        <div class="absolute -top-10 -left-10 w-48 h-48 bg-dorado-secundario/10 rounded-full mix-blend-multiply blur-2xl animate-float-slow"></div>
+        <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-azul-primario/10 rounded-full mix-blend-multiply blur-2xl animate-float-medium"></div>
+        <div class="absolute top-1/4 left-1/2 w-32 h-32 bg-azul-shade/10 rounded-full mix-blend-multiply blur-2xl animate-blob"></div>
+
+        <div class="relative z-10 p-6 text-center">
+            <div class="w-40 h-40 bg-white/20 backdrop-blur-md rounded-full mx-auto flex items-center justify-center border border-white/30 shadow-2xl animate-pulse-light">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-azul-primario opacity-90">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M12 16L12 12L16 14"/>
+                </svg>
+            </div>
+            <h3 class="mt-8 text-3xl font-extrabold text-azul-primario">Seguridad Jurídica</h3>
+            <p class="mt-2 text-xl text-midnight opacity-90">Tu patrimonio, protegido en México.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-
-
-<section class="bg-indigo-50 py-10 px-6 text-center">
-  <div class="max-w-3xl mx-auto">
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-      ¿Deseas garantizar la seguridad de tu arrendamiento?
-    </h2>
-    <p class="text-gray-600 text-lg mb-6">
-      <span class="font-semibold">Solicita tu póliza </span> y protege tu patrimonio con respaldo legal especializado. Confía en nosotros para una tranquilidad legal incomparable.
-    </p>
-    <a href="#contacto" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-300">
-      Comenzar solicitud
-    </a>
   </div>
 </section>

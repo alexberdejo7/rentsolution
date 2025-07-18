@@ -1,7 +1,7 @@
 ---
-import ServiceCard from './ServiceCard.astro';
+// src/components/ServicesSection.astro
 
-// Íconos Lucide convertidos a SVG puro.
+// Íconos Lucide (sin cambios)
 const ShieldIcon = `
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
 `;
@@ -11,60 +11,139 @@ const SearchIcon = `
 const ScaleIcon = `
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale"><path d="m16 16 3-8 3 8c0 1-1 2-2 2s-2-1-2-2Z"/><path d="m8 16 3-8 3 8c0 1-1 2-2 2s-2-1-2-2Z"/><path d="M7 21h10"/><path d="M12 3v18"/></svg>
 `;
+
+const CheckCircleIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+`;
+
+// Datos de Servicios (sin cambios)
+interface Service {
+  title: string;
+  description: string;
+  icon: string;
+  iconBgClass: string;
+  iconColorClass: string;
+  gradient: string;
+  features: string[];
+}
+
+const servicesData: Service[] = [
+  {
+    title: "Pólizas Jurídicas",
+    description: "Protección integral para propietarios y arrendatarios con cobertura completa ante riesgos de impago y daños.",
+    icon: ShieldIcon,
+    iconBgClass: "bg-azul-primario/10",
+    iconColorClass: "text-azul-primario",
+    gradient: "from-azul-primario to-azul-dos",
+    features: ["Falta de pagos cubierta", "Daños contra el patrimonio", "Protección al arrendatario incluida"],
+  },
+  {
+    title: "Investigación de Inquilino y Obligado Solidario",
+    description: "Verificación exhaustiva para garantizar la seguridad de tu inversión antes de firmar cualquier contrato.",
+    icon: SearchIcon,
+    iconBgClass: "bg-dorado-secundario/10",
+    iconColorClass: "text-dorado-secundario",
+    gradient: "from-dorado-secundario to-azul-primario",
+    features: ["Historial crediticio detallado", "Análisis de arrendamientos previos", "Análisis de solvencia económica"],
+  },
+  {
+    title: "Resolución de Conflictos",
+    description: "Manejo especializado de disputas legales y procesos de recuperación de propiedades o adeudos.",
+    icon: ScaleIcon,
+    iconBgClass: "bg-azul-shade/10",
+    iconColorClass: "text-azul-shade",
+    gradient: "from-azul-shade to-azul-shadedos",
+    features: ["Trámites de desocupación y entrega", "Mediación y arbitraje", "Recuperación judicial de adeudos"],
+  },
+];
 ---
-<section id="servicios" class="py-20 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+<section id="servicios" class="py-20 relative overflow-hidden bg-azul-primario/5">
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-azul-dos/10 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob"></div>
+    <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-dorado-secundario/10 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-float-medium animation-delay-2000"></div>
+    <div class="absolute bottom-1/4 left-1/3 w-80 h-80 bg-azul-shade/10 rounded-full mix-blend-screen filter blur-3xl opacity-40 animate-blob animation-delay-4000"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center mb-16">
-      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Nuestros Servicios</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <h2 class="text-4xl font-extrabold text-azul-primario mb-4">
+        Nuestros <span class="text-dorado-secundario">Servicios</span>
+      </h2>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto">
         Protección jurídica integral para propietarios en procesos de arrendamiento
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <ServiceCard
-        iconHtml={ShieldIcon}
-        iconBgColor="bg-blue-100"
-        iconColor="text-blue-600"
-        title="Pólizas Jurídicas"
-        description="Protección integral para propietarios y arrendatarios con cobertura completa"
-        features={[
-          "Falta de pagos cubierta",
-          "Daños contra el patrimonio",
-          "Protección al arrendatario incluida"
-        ]}
-      />
-      <ServiceCard
-        iconHtml={SearchIcon}
-        iconBgColor="bg-green-100"
-        iconColor="text-green-600"
-        title="Investigación de Inquilino y Obligado Solidario"
-        description="Verificación exhaustiva para garantizar la seguridad de tu inversión"
-        features={[
-          "Historial crediticio detallado",
-          "Análisis del historial de arrendamientos previos",
-          "Análisis de solvencia económica"
-        ]}
-      />
-      <ServiceCard
-        iconHtml={ScaleIcon}
-        iconBgColor="bg-amber-100"
-        iconColor="text-amber-600"
-        title="Resolución de Conflictos"
-        description="Manejo especializado de disputas legales y procesos de recuperación"
-        features={[
-          "Trámites de desocupación y entrega",
-          "Mediación y arbitraje",
-          "Recuperación judicial de adeudos"
-        ]}
-      />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10"> {/* Ajuste para mobile */}
+      {servicesData.map((service) => (
+        <div class="group relative p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden 
+                    bg-white/50 backdrop-blur-lg border border-white/30"> 
+          
+          {/* Icon */}
+          <div class={`w-14 h-14 ${service.iconBgClass} ${service.iconColorClass} rounded-full 
+                      flex items-center justify-center mb-4 text-2xl 
+                      group-hover:scale-105 transition-transform duration-200`}> 
+            <Fragment set:html={service.icon} />
+          </div>
+          
+          {/* Content */}
+          <h3 class="text-xl font-bold text-azul-primario mb-2 group-hover:text-azul-dos transition-colors duration-200"> 
+            {service.title}
+          </h3>
+          
+          <p class="text-gray-700 mb-4 leading-relaxed text-sm"> 
+            {service.description}
+          </p>
+          
+          {/* Features */}
+          <ul class="space-y-2  text-gray-700 text-xs"> 
+            {service.features.map((feature) => (
+              <li class="flex mr-3 items-center">
+                <Fragment set:html={CheckCircleIcon} class={`w-4 h-4 ${service.iconColorClass} mr-2 flex-shrink-0`} />
+                <span class="ml-2">{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+         
+          <div class={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r ${service.gradient} 
+                      transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div> 
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
-<div class="w-full h-20 bg-black text-white  text-center py-3 px-4">
-  <p class=" text-balance mx-auto m-2 p-2 sm:text-base text-5xl font-extrabold line-clamp-2 tracking-wide">
-    Descubre la seguridad y confianza que una póliza jurídica integral 
-    puede ofrecer en el mundo del arrendamiento.
-  </p>
-</div>
+<section class="relative bg-gradient-to-r from-azul-primario via-azul-dos to-midnight overflow-hidden py-12 px-4 text-center"> 
+  <div class="absolute inset-0 opacity-10">
+    <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+        <pattern id="grid-services-cta-mobile" width="10" height="10" patternUnits="userSpaceOnUse">
+          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100" height="100" fill="url(#grid-services-cta-mobile)" class="text-white/20"/>
+    </svg>
+  </div>
+  
+  <div class="relative max-w-3xl mx-auto z-10"> 
+    <h2 class="text-xl sm:text-2xl font-bold text-white mb-4 leading-tight"> 
+      Asegura tu tranquilidad. <span class="text-dorado-secundario">Protege tu inversión.</span>
+    </h2>
+    
+    <p class="text-sm text-gray-200 mb-6 max-w-2xl mx-auto"> 
+      Conoce el respaldo jurídico que mereces. Estamos listos para blindar tu patrimonio.
+    </p>
+
+    <div class="mt-6"> 
+      <a href="#contacto" class="inline-flex items-center px-6 py-3 bg-dorado-secundario text-azul-primario font-semibold rounded-full hover:bg-gray-200 transform hover:scale-102 transition-all duration-200 shadow-md"> {/* Reduje padding y transformación */}
+        <span class="text-sm">Contáctanos</span> {/* Reduje tamaño de texto */}
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"> {/* Reduje tamaño de icono */}
+          <path d="M5 12h14"/>
+          <path d="M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

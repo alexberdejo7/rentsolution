@@ -2,10 +2,39 @@
 @import "tailwindcss";
 
 @theme {
-  /* Define tu color azul-primario */
-  --color-azul-primario: #007bff; /* Un azul vibrante */
-  --color-azul-secundario: #6c757d; /* Un gris azulado */
-  --color-mi-verde: #28a745; /* Otro color, por ejemplo */
+  /* Define tus colores como propiedades CSS personalizadas */
+  --color-azul-primario: #102c54; /* Un azul vibrante */
+  --color-dorado-secundario: #fcb103; /* Un gris azulado */
+  --color-tercero: #28a745; /* Si lo usas, mantenlo */
+  --color-azul-dos: #002857;
+  --color-azul-shade: #00244e;
+  --color-azul-shadedos: #001c3d;
+  --color-midnight: #001b45;
+
+  /* Las animaciones se definen con @keyframes directamente aquí */
+  @keyframes blob {
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+  }
+
+  @keyframes pulse-light {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(0.98); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    25% { transform: translateY(-10px) translateX(5px); }
+    50% { transform: translateY(0) translateX(10px); }
+    75% { transform: translateY(10px) translateX(5px); }
+  }
+
+  /* Y luego se aplican las animaciones */
+  --animation-blob: blob 7s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  --animation-pulse-light: pulse-light 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animation-float-slow: float 4s ease-in-out infinite;
+  --animation-float-medium: float 5s ease-in-out infinite alternate;
 }
 
 /* Puedes agregar aquí tus estilos base adicionales si los necesitas */
