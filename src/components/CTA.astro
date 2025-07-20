@@ -1,7 +1,7 @@
 ---
 // src/components/CallToActionSection.astro
 ---
-<section class="py-20 bg-gradient-to-r from-blue-600 to-blue-700">
+<section class="py-20 bg-gradient-to-r from-azul-shade to-azul-shadedos">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Protege tu Inversión Inmobiliaria Hoy</h2>
     <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
@@ -18,59 +18,89 @@
     </div>
   </div>
 </section>
-<section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-16 px-6 md:px-20">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-4xl font-extrabold mb-10 text-center text-orange-400 tracking-tight">
-      ¿Tienes dudas sobre tu póliza jurídica?
-    </h2>
+<section id="terminos" class="relative py-20 bg-gradient-to-br from-white to-blue-50 overflow-hidden">
+  <!-- Fondos decorativos -->
+  <div class="absolute -top-20 -left-32 w-96 h-96 bg-amber-300 opacity-20 rounded-full blur-3xl z-0"></div>
+  <div class="absolute bottom-0 -right-20 w-80 h-80 bg-blue-400 opacity-10 rounded-full blur-2xl z-0"></div>
 
-    <div class="grid md:grid-cols-2 gap-10">
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Encabezado -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Términos y Condiciones</h2>
+      <p class="text-lg text-gray-600">
+        Consulta nuestras políticas legales para el uso de nuestras pólizas jurídicas de arrendamiento.
+      </p>
+    </div>
 
-      <!-- Firma del contrato -->
-      <div class="bg-slate-700 rounded-2xl p-6 shadow-xl border border-orange-500/30 hover:scale-105 transition-transform duration-300">
-        <h3 class="text-xl font-semibold text-orange-300 mb-4">Firmas y Contratos</h3>
-        <ul class="space-y-3 text-sm">
-          <li>🕒 <strong>Horario:</strong> Lunes a Viernes 9–18 h / Sábados 9–14 h</li>
-          <li>📍 <strong>Ubicación:</strong> Oficinas Rent Solutions o en el inmueble (con 3 días de anticipación)</li>
-          <li>🚗 <strong>Viáticos:</strong> $500 fuera de Cuernavaca/Jiutepec/Temixco. Gratis si se recoge al personal.</li>
-          <li>📅 <strong>Día inhábil:</strong> Firma con costo adicional de $500</li>
-          <li>🧾 <strong>Presencial:</strong> Arrendatario y aval deben firmar en persona. Propietario puede firmar electrónicamente, pero debe ratificar.</li>
-        </ul>
-      </div>
-
-      <!-- Investigación -->
-      <div class="bg-slate-700 rounded-2xl p-6 shadow-xl border border-orange-500/30 hover:scale-105 transition-transform duration-300">
-        <h3 class="text-xl font-semibold text-orange-300 mb-4">Investigación</h3>
-        <ul class="space-y-3 text-sm">
-          <li>📄 <strong>Inicio:</strong> Solo con todos los documentos entregados</li>
-          <li>⏳ <strong>Duración:</strong> Hasta 3 días hábiles</li>
-          <li>⚡ <strong>Express:</strong> Investigación en 1 día con costo adicional de $1,000 (anticipo requerido)</li>
-        </ul>
-      </div>
-
-      <!-- Validez de la Póliza -->
-      <div class="md:col-span-2 bg-slate-700 rounded-2xl p-6 shadow-xl border border-orange-500/30 hover:scale-105 transition-transform duration-300">
-        <h3 class="text-xl font-semibold text-orange-300 mb-4">¿Cuándo pierde validez la póliza?</h3>
-        <ul class="space-y-3 text-sm md:columns-2 md:gap-x-10">
-          <li>❌ Cambios en el contrato sin avisar</li>
-          <li>❌ Renovaciones por cuenta propia</li>
-          <li>❌ Celebrar otro contrato sin Rent Solutions</li>
-          <li>❌ Retrasos de 2 meses sin notificar</li>
-          <li>❌ Cambiar el uso del inmueble</li>
-          <li>❌ Faltar algún requisito/documento</li>
-        </ul>
-      </div>
-
-      <!-- Contacto -->
-      <div class="md:col-span-2 flex flex-col items-center text-center mt-12">
-        <p class="text-lg font-medium text-orange-200">¿Aún tienes dudas?</p>
-        <p class="text-sm mb-4">Contáctanos, estamos para ayudarte.</p>
-        <div class="bg-slate-800 rounded-xl px-6 py-4 text-sm shadow-lg border border-orange-400/20">
-          <p><strong>📍 Dirección:</strong> Alicia #55, Col. Maravillas, Cuernavaca, Mor.</p>
-          <p><strong>📞 Tel:</strong> 777 270 1431</p>
-          <p><strong>📧 Email:</strong> rentsolutionsmx@gmail.com</p>
+    <!-- Card principal -->
+    <div class="backdrop-blur-xl bg-white/60 border border-white/40 shadow-2xl rounded-3xl p-10 space-y-12 transition duration-300">
+      
+      <!-- ITEM -->
+      <div class="flex items-start gap-6">
+        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-md">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M5 13a9 9 0 0114 0" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900">Protección Legal Garantizada</h3>
+          <p class="text-gray-700 mt-1">
+            Las pólizas jurídicas se otorgan con respaldo legal completo, conforme al marco jurídico mexicano.
+          </p>
         </div>
       </div>
+
+      <!-- ITEM -->
+      <div class="flex items-start gap-6">
+        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-md">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 16h8M8 12h8m-8-4h8M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900">Validez del Contrato</h3>
+          <p class="text-gray-700 mt-1">
+            El servicio queda sujeto a la firma del contrato legal entre el propietario y el arrendatario validado por nosotros.
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM -->
+      <div class="flex items-start gap-6">
+        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-md">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m0 4v.01M4 4h16a1 1 0 011 1v14a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900">Confidencialidad de Datos</h3>
+          <p class="text-gray-700 mt-1">
+            Toda la información proporcionada será tratada de manera confidencial y no se compartirá con terceros.
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM -->
+      <div class="flex items-start gap-6">
+        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-md">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900">Vigencia del Servicio</h3>
+          <p class="text-gray-700 mt-1">
+            Las pólizas tienen vigencia de 12 meses y deberán renovarse previo vencimiento para mantener su cobertura.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Llamado a contacto -->
+    <div class="mt-12 text-center">
+      <p class="text-sm text-gray-600">¿Tienes dudas legales? 
+        <a href="#contacto" class="text-amber-600 font-medium underline hover:text-amber-700 transition">Contáctanos para más información</a>.
+      </p>
     </div>
   </div>
 </section>
