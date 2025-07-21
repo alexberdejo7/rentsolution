@@ -1,106 +1,15 @@
----
-// src/components/CallToActionSection.astro
----
-<section class="py-20 bg-gradient-to-r from-azul-shade to-azul-shadedos">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Protege tu Inversión Inmobiliaria Hoy</h2>
-    <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-      No esperes a tener problemas. Obtén tu póliza jurídica y duerme tranquilo sabiendo que tu propiedad está
-      protegida.
+<section class="relative h-[90vh] flex items-center justify-center text-white bg-center bg-cover bg-no-repeat bg-[url('/images/house.png')]">
+  <!-- Capa oscura mejorada -->
+  <div class="absolute inset-0 bg-black/70"></div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 text-center px-4 max-w-2xl">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-6">
+      ¿VAS A RENTAR UNA PROPIEDAD?
+    </h1>
+    <p class="text-lg md:text-xl text-blue-100 font-medium leading-relaxed">
+      Querido inquilino, nosotros te asesoramos,<br />
+      debes conocer tus derechos también.
     </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#contacto" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-lg font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-12 px-6 py-2 bg-white text-blue-600 hover:bg-gray-100">
-        Cotizar Gratis
-      </a>
-      <a href="#contacto" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-lg font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-12 px-6 py-2 border border-white text-white hover:bg-white hover:text-blue-600 bg-transparent">
-        Hablar con un Experto
-      </a>
-    </div>
-  </div>
-</section>
-<section id="terminos" class="relative py-20 bg-gradient-to-br from-white to-blue-50 overflow-hidden">
-  <!-- Fondos decorativos -->
-  <div class="absolute -top-20 -left-32 w-96 h-96 bg-amber-300 opacity-20 rounded-full blur-3xl z-0"></div>
-  <div class="absolute bottom-0 -right-20 w-80 h-80 bg-blue-400 opacity-10 rounded-full blur-2xl z-0"></div>
-
-  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Encabezado -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Términos y Condiciones</h2>
-      <p class="text-lg text-gray-600">
-        Consulta nuestras políticas legales para el uso de nuestras pólizas jurídicas de arrendamiento.
-      </p>
-    </div>
-
-    <!-- Card principal -->
-    <div class="backdrop-blur-xl bg-white/60 border border-white/40 shadow-2xl rounded-3xl p-10 space-y-12 transition duration-300">
-      
-      <!-- ITEM -->
-      <div class="flex items-start gap-6">
-        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-md">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M5 13a9 9 0 0114 0" />
-          </svg>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold text-gray-900">Protección Legal Garantizada</h3>
-          <p class="text-gray-700 mt-1">
-            Las pólizas jurídicas se otorgan con respaldo legal completo, conforme al marco jurídico mexicano.
-          </p>
-        </div>
-      </div>
-
-      <!-- ITEM -->
-      <div class="flex items-start gap-6">
-        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-md">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 16h8M8 12h8m-8-4h8M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold text-gray-900">Validez del Contrato</h3>
-          <p class="text-gray-700 mt-1">
-            El servicio queda sujeto a la firma del contrato legal entre el propietario y el arrendatario validado por nosotros.
-          </p>
-        </div>
-      </div>
-
-      <!-- ITEM -->
-      <div class="flex items-start gap-6">
-        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-md">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m0 4v.01M4 4h16a1 1 0 011 1v14a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1z" />
-          </svg>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold text-gray-900">Confidencialidad de Datos</h3>
-          <p class="text-gray-700 mt-1">
-            Toda la información proporcionada será tratada de manera confidencial y no se compartirá con terceros.
-          </p>
-        </div>
-      </div>
-
-      <!-- ITEM -->
-      <div class="flex items-start gap-6">
-        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 flex items-center justify-center shadow-md">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold text-gray-900">Vigencia del Servicio</h3>
-          <p class="text-gray-700 mt-1">
-            Las pólizas tienen vigencia de 12 meses y deberán renovarse previo vencimiento para mantener su cobertura.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Llamado a contacto -->
-    <div class="mt-12 text-center">
-      <p class="text-sm text-gray-600">¿Tienes dudas legales? 
-        <a href="#contacto" class="text-amber-600 font-medium underline hover:text-amber-700 transition">Contáctanos para más información</a>.
-      </p>
-    </div>
   </div>
 </section>
