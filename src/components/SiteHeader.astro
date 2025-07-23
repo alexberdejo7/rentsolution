@@ -1,33 +1,97 @@
 ---
 // src/components/SiteHeader.astro
-// Íconos Lucide convertidos a SVG puro. Puedes buscar y reemplazar por los SVG originales.
-// Ejemplo para Shield:
-const ShieldIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+
+
+
+const MenuIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+`;
+
+const CloseIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+  </svg>
 `;
 ---
-<nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+
+<nav class="w-full bg-black/10 backdrop-blur-lg border-b border-black/10 z-50 text-black">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
-      <div class="flex items-center space-x-2">
-        <span class="h-8 w-8 text-blue-600" set:html={ShieldIcon}></span>
-        <a href="/" class="text-xl font-bold text-gray-900">JurídicoSeguro</a>
-      </div>
+      <!-- Logo -->
+      <!-- Logo -->
+<div class="flex items-center space-x-2">
+  <img src="../../public/images/rentsolution.PNG" alt="Rent Solution Logo" class="h-16 w-full" />
+  <a href="/" class="text-lg font-bold text-black/90 hover:text-black transition-colors duration-200"></a>
+</div>
+
+      <!-- Desktop Menu -->
       <div class="hidden md:flex items-center space-x-8">
-        <a href="#servicios" class="text-gray-700 hover:text-blue-600 transition-colors text-color">
+        <a href="#servicios" class="hover:text-black text-black/80 transition-colors duration-200 relative group">
           Servicios
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-dorado-secundario transition-all duration-200 group-hover:w-full"></span>
         </a>
-        <a href="#ventajas" class="text-gray-700 hover:text-blue-600 transition-colors">
+        <a href="#ventajas" class="hover:text-black text-black/80 transition-colors duration-200 relative group">
           Ventajas
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-dorado-secundario transition-all duration-200 group-hover:w-full"></span>
         </a>
-        <a href="#que-es" class="text-gray-700 hover:text-blue-600 transition-colors">
+        <a href="#que-es" class="hover:text-black text-black/80 transition-colors duration-200 relative group">
           ¿Qué es?
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-dorado-secundario transition-all duration-200 group-hover:w-full"></span>
         </a>
-        <a href="#contacto" class="text-gray-700 hover:text-blue-600 transition-colors">
+        <a href="#contacto" class="hover:text-black text-black/80 transition-colors duration-200 relative group">
           Contacto
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-dorado-secundario transition-all duration-200 group-hover:w-full"></span>
         </a>
-        <a href="#contacto" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white">Cotizar Ahora</a>
+        <a href="#contacto" class="inline-flex items-center justify-center rounded-full px-6 py-2 bg-dorado-secundario hover:bg-amber-600 text-azul-primario font-semibold text-sm transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+          Cotizar Ahora
+        </a>
+      </div>
+      
+      <!-- Mobile menu toggle -->
+      <div class="md:hidden">
+        <button id="mobile-menu-toggle" class="focus:outline-none p-2 rounded-lg hover:bg-black/10 transition-colors duration-200">
+          <span id="menu-icon" set:html={MenuIcon}></span>
+          <span id="close-icon" set:html={CloseIcon} class="hidden"></span>
+        </button>
       </div>
     </div>
   </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-black/10 backdrop-blur-lg border-t border-black/10">
+    <div class="space-y-2">
+      <a href="#servicios" class="block py-3 text-black/90 hover:text-black hover:bg-black/10 px-3 rounded-lg transition-all duration-200">Servicios</a>
+      <a href="#ventajas" class="block py-3 text-black/90 hover:text-black hover:bg-black/10 px-3 rounded-lg transition-all duration-200">Ventajas</a>
+      <a href="#que-es" class="block py-3 text-black/90 hover:text-black hover:bg-black/10 px-3 rounded-lg transition-all duration-200">¿Qué es?</a>
+      <a href="#contacto" class="block py-3 text-black/90 hover:text-black hover:bg-black/10 px-3 rounded-lg transition-all duration-200">Contacto</a>
+      <a href="#contacto" class="block mt-4 text-center rounded-full bg-dorado-secundario text-azul-primario px-6 py-3 font-semibold hover:bg-amber-600 transition-all duration-200 shadow-lg">
+        Cotizar Ahora
+      </a>
+    </div>
+  </div>
+  
+  <script>
+    const toggleBtn = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const iconMenu = document.getElementById('menu-icon');
+    const iconClose = document.getElementById('close-icon');
+    
+    toggleBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      iconMenu.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+    
+    // Cerrar menú móvil al hacer click en un enlace
+    const mobileLinks = menu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        iconMenu.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+  </script>
 </nav>

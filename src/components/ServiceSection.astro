@@ -1,28 +1,11 @@
 ---
 // src/components/ServicesSection.astro
 
-// Íconos Lucide (sin cambios)
-const ShieldIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-`;
-const SearchIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-`;
-const ScaleIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale"><path d="m16 16 3-8 3 8c0 1-1 2-2 2s-2-1-2-2Z"/><path d="m8 16 3-8 3 8c0 1-1 2-2 2s-2-1-2-2Z"/><path d="M7 21h10"/><path d="M12 3v18"/></svg>
-`;
-
-const CheckCircleIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-`;
-
-// Datos de Servicios (sin cambios)
 interface Service {
   title: string;
   description: string;
   icon: string;
   iconBgClass: string;
-  iconColorClass: string;
   gradient: string;
   features: string[];
 }
@@ -31,89 +14,122 @@ const servicesData: Service[] = [
   {
     title: "Pólizas Jurídicas",
     description: "Protección integral para propietarios y arrendatarios con cobertura completa ante riesgos de impago y daños.",
-    icon: ShieldIcon,
+    icon: "../../public/images/contrato.png",
     iconBgClass: "bg-azul-primario/10",
-    iconColorClass: "text-azul-primario",
     gradient: "from-azul-primario to-azul-dos",
     features: ["Falta de pagos cubierta", "Daños contra el patrimonio", "Protección al arrendatario incluida"],
   },
   {
     title: "Investigación de Inquilino y Obligado Solidario",
     description: "Verificación exhaustiva para garantizar la seguridad de tu inversión antes de firmar cualquier contrato.",
-    icon: SearchIcon,
+    icon: "../../public/images/lupaa.png",
     iconBgClass: "bg-dorado-secundario/10",
-    iconColorClass: "text-dorado-secundario",
     gradient: "from-dorado-secundario to-azul-primario",
     features: ["Historial crediticio detallado", "Análisis de arrendamientos previos", "Análisis de solvencia económica"],
   },
   {
     title: "Resolución de Conflictos",
     description: "Manejo especializado de disputas legales y procesos de recuperación de propiedades o adeudos.",
-    icon: ScaleIcon,
+    icon: "../../public/images/candado.png",
     iconBgClass: "bg-azul-shade/10",
-    iconColorClass: "text-azul-shade",
     gradient: "from-azul-shade to-azul-shadedos",
     features: ["Trámites de desocupación y entrega", "Mediación y arbitraje", "Recuperación judicial de adeudos"],
   },
 ];
+
+const CheckCircleIcon = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+`;
 ---
 
-<section id="servicios" class="py-20 relative overflow-hidden bg-azul-primario/5">
+<section id="servicios" class="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/50 to-amber-50/30">
+  <!-- Elementos decorativos mejorados -->
   <div class="absolute inset-0 z-0 pointer-events-none">
-    <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-azul-dos/10 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob"></div>
-    <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-dorado-secundario/10 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-float-medium animation-delay-2000"></div>
-    <div class="absolute bottom-1/4 left-1/3 w-80 h-80 bg-azul-shade/10 rounded-full mix-blend-screen filter blur-3xl opacity-40 animate-blob animation-delay-4000"></div>
+    <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-500/10 to-blue-600/5 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-gradient-to-r from-amber-400/10 to-orange-300/5 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
+    <div class="absolute bottom-1/4 left-1/3 w-80 h-80 bg-gradient-to-r from-indigo-500/10 to-purple-400/5 rounded-full blur-3xl animate-pulse animation-delay-4000"></div>
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-extrabold text-azul-primario mb-4">
-        Nuestros <span class="text-dorado-secundario">Servicios</span>
+    <!-- Header mejorado -->
+    <div class="text-center mb-20">
+      <div class="inline-flex items-center justify-center p-1 bg-gradient-to-r from-blue-800 via-midnight to-amber-400 rounded-full mb-2">
+        <span class="px-4 py-1 bg-white rounded-full text-sm font-semibold text-gray-800 shadow-sm">
+          Servicios Especializados
+        </span>
+      </div>
+      <h2 class="text-5xl font-bold bg-gradient-to-r from-blue-900 via-midnight to-blue-950 bg-clip-text text-transparent mb-6">
+        Nuestros <span class="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Servicios</span>
       </h2>
-      <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-        Protección jurídica integral para propietarios en procesos de arrendamiento
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Protección jurídica integral para propietarios en procesos de arrendamiento con el respaldo que necesitas
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10"> {/* Ajuste para mobile */}
-      {servicesData.map((service) => (
-        <div class="group relative p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden 
-                    bg-white/50 backdrop-blur-lg border border-white/30"> 
-          
-          {/* Icon */}
-          <div class={`w-14 h-14 ${service.iconBgClass} ${service.iconColorClass} rounded-full 
-                      flex items-center justify-center mb-4 text-2xl 
-                      group-hover:scale-105 transition-transform duration-200`}> 
-            <Fragment set:html={service.icon} />
+    <!-- Grid de servicios rediseñado -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {servicesData.map((service, index) => (
+        <div class="group relative">
+          <!-- Card principal -->
+          <div class="relative p-8 rounded-3xl bg-white/80 backdrop-blur-sm border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden">
+            
+            <!-- Gradiente decorativo superior -->
+            <div class={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient}`}></div>
+            
+            <!-- Contenedor del icono sin shadow problemática -->
+            <div class="relative mb-6">
+              <!-- Fondo decorativo para el icono -->
+              <div class={`absolute inset-0 ${service.iconBgClass} rounded-2xl blur-sm opacity-50 group-hover:opacity-50 transition-opacity duration-300`}></div>
+              <div class="relative w-20 h-20 mx-auto flex items-center justify-center">
+                <!-- Imagen sin shadow, usando filter drop-shadow para PNG transparentes -->
+                <img 
+                  src={service.icon} 
+                  alt={service.title} 
+                  class="w-20 h-20 object-contain filter drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-400 group-hover:scale-110" 
+                />
+              </div>
+            </div>
+            
+            <!-- Título mejorado -->
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-blue-700 transition-colors duration-300 text-center"> 
+              {service.title}
+            </h3>
+            
+            <!-- Descripción mejorada -->
+            <p class="text-gray-600 mb-6 leading-relaxed text-center"> 
+              {service.description}
+            </p>
+            
+            <!-- Lista de características rediseñada -->
+            <div class="space-y-3">
+              {service.features.map((feature) => (
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center mr-3 mt-0.5">
+                    <Fragment set:html={CheckCircleIcon} class="w-3 h-3 text-white" />
+                  </div>
+                  <span class="text-gray-700 text-sm leading-relaxed">{feature}</span>
+                </div>
+              ))}
+            </div>
+            
+            <!-- Elemento decorativo inferior -->
+            <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-gray-50/50 to-transparent pointer-events-none"></div>
+            
+            <!-- Indicador de hover -->
+            <div class={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r ${service.gradient} group-hover:w-3/4 transition-all duration-500 rounded-full`}></div>
           </div>
           
-          {/* Content */}
-          <h3 class="text-xl font-bold text-azul-primario mb-2 group-hover:text-azul-dos transition-colors duration-200"> 
-            {service.title}
-          </h3>
-          
-          <p class="text-gray-700 mb-4 leading-relaxed text-sm"> 
-            {service.description}
-          </p>
-          
-          {/* Features */}
-          <ul class="space-y-2  text-gray-700 text-xs"> 
-            {service.features.map((feature) => (
-              <li class="flex mr-3 items-center">
-                <Fragment set:html={CheckCircleIcon} class={`w-4 h-4 ${service.iconColorClass} mr-2 flex-shrink-0`} />
-                <span class="ml-2">{feature}</span>
-              </li>
-            ))}
-          </ul>
-          
-         
-          <div class={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r ${service.gradient} 
-                      transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left`}></div> 
+          <!-- Número de servicio decorativo -->
+          <div class="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-lg z-10">
+            <span class="text-xl font-bold text-gray-600">{(index + 1).toString().padStart(2, '0')}</span>
+          </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<!-- CTA -->
 
 <section class="relative bg-gradient-to-r from-azul-dos via-azul-shadedos to-midnight overflow-hidden py-12 px-4 text-center"> 
   <div class="absolute inset-0 opacity-10">
@@ -137,9 +153,9 @@ const servicesData: Service[] = [
     </p>
 
     <div class="mt-6"> 
-      <a href="#contacto" class="inline-flex items-center px-6 py-3 bg-dorado-secundario text-azul-primario font-semibold rounded-full hover:bg-gray-200 transform hover:scale-102 transition-all duration-200 shadow-md"> {/* Reduje padding y transformación */}
-        <span class="text-sm">Contáctanos</span> {/* Reduje tamaño de texto */}
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"> {/* Reduje tamaño de icono */}
+      <a href="#contacto" class="inline-flex items-center px-6 py-3 bg-dorado-secundario text-azul-primario font-semibold rounded-full hover:bg-gray-200 transform hover:scale-102 transition-all duration-200 shadow-md">
+        <span class="text-sm">Contáctanos</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
           <path d="M5 12h14"/>
           <path d="M12 5l7 7-7 7"/>
         </svg>

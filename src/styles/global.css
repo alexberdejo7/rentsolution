@@ -4,12 +4,13 @@
 @theme {
   /* Define tus colores como propiedades CSS personalizadas */
   --color-azul-primario: #102c54; /* Un azul vibrante */
-  --color-dorado-secundario: #fcb103; /* Un gris azulado */
+  --color-dorado-secundario: #ceac3d; /* Un gris azulado */
   --color-tercero: #28a745; /* Si lo usas, mantenlo */
   --color-azul-dos: #002857;
   --color-azul-shade: #00244e;
   --color-azul-shadedos: #001c3d;
   --color-midnight: #001b45;
+ 
 
   /* Las animaciones se definen con @keyframes directamente aquí */
   @keyframes blob {
