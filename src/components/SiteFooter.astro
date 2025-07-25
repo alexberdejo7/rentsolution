@@ -1,22 +1,21 @@
 ---
-// src/components/SiteFooter.astro
 const currentYear = new Date().getFullYear();
-// Ícono Shield SVG
-const ShieldIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-`;
 ---
+
 <footer class="bg-gray-900 text-white py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid md:grid-cols-4 gap-8">
+      
+      <!-- Logo + nombre -->
       <div>
-        <div class="flex items-center space-x-2 mb-4">
-          <span class="h-8 w-8 text-blue-400" set:html={ShieldIcon}></span>
-          <span class="text-xl font-bold">JurídicoSeguro</span>
+        <div class="flex items-center space-x-2 mb-4 text-blue-400">
+          <img class="w-20 h-20" src="../../public/images/rentlogo.png" alt="">
+          
         </div>
-        <p class="text-gray-400">Protegiendo propietarios en México desde 2025</p>
+      
       </div>
 
+      <!-- Servicios -->
       <div>
         <h4 class="font-semibold mb-4">Servicios</h4>
         <ul class="space-y-2 text-gray-400">
@@ -24,31 +23,35 @@ const ShieldIcon = `
           <li>Cobertura por Impago</li>
           <li>Proceso de Desalojo</li>
           <li>Daños a Propiedad</li>
+          <li>Investigacion de inquilino</li>
+          <li>Resolucion de conflictos</li>
         </ul>
       </div>
 
+      <!-- Empresa -->
       <div>
         <h4 class="font-semibold mb-4">Empresa</h4>
         <ul class="space-y-2 text-gray-400">
           <li>Nosotros</li>
-          <li>Equipo Legal</li>
-          <li>Casos de Éxito</li>
-          <li>Blog</li>
+           <li>Terminos y Condiciones</li>
         </ul>
       </div>
 
+      <!-- Nueva sección: Ubicación y Horarios -->
       <div>
-        <h4 class="font-semibold mb-4">Legal</h4>
-        <ul class="space-y-2 text-gray-400">
-          <li>Términos y Condiciones</li>
-          <li>Política de Privacidad</li>
-          <li>Aviso de Privacidad</li>
-        </ul>
+        <h4 class="font-semibold mb-4">Ubicación</h4>
+        <p class="text-gray-400">Av. Reforma 123, Ciudad de México, México</p>
+
+        <h4 class="font-semibold mt-6 mb-4">Horarios</h4>
+        <p class="text-gray-400">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+        <p class="text-gray-400">Sábado: 10:00 AM - 2:00 PM</p>
+        <p class="text-gray-400">Domingo: Cerrado</p>
       </div>
+
     </div>
 
     <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-      <p>&copy; {currentYear} JurídicoSeguro. Todos los derechos reservados.</p>
+      <p>&copy; {currentYear} RentSolution</p>
     </div>
   </div>
 </footer>

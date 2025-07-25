@@ -2,9 +2,9 @@
   <div class="max-w-5xl mx-auto">
     <!-- Hero -->
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3 leading-tight">
+      <h2 class="text-3xl md:text-4xl font-bold text-midnight mb-3 leading-tight">
         Confíe en 
-        <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">RentSolution</span>
+        <span class=" text-dorado-secundario">RentSolution</span>
       </h2>
       <p class="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
         Protección integral para su propiedad
@@ -12,7 +12,7 @@
     </div>
 
     <!-- Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:grid-cols-2 gap-5 md:gap-7 p-2">
       <!-- Card Template -->
       {[
         {
@@ -21,8 +21,8 @@
           icon: 'text-blue-600',
           title: 'Mision',
           text: 'Ser el despacho líder y referente en protección jurídica de arrendamientos, reconocido por nuestra eficacia, profesionalismo y la tranquilidad que brindamos a nuestros clientes. ',
-          img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80',
-          overlay: 'from-blue-900/85 via-blue-800/75 to-indigo-900/85',
+          img: '../../public/images/office.jpg',
+          overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
           hoverText: 'text-blue-100'
         },
         {
@@ -30,9 +30,9 @@
           bg: 'bg-indigo-100',
           icon: 'text-indigo-600',
           title: 'Vision',
-          text: 'Proporcionar soluciones jurídicas integrales y especializadas en materia de arrendamiento, a través de la emisión y gestión de pólizas jurídicas que salvaguardan los intereses de propietarios e inquilinos. Nuestro compromiso es ofrecer un servicio ágil, transparente y efectivo, garantizando seguridad patrimonial de quienes confían en nosotros.',
-          img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80',
-          overlay: 'from-indigo-900/85 via-purple-800/75 to-blue-900/85',
+          text: 'Proporcionar soluciones jurídicas integrales en materia de arrendamiento, a través de la emisión y gestión de pólizas jurídicas que salvaguardan los intereses de propietarios e inquilinos. Nuestro compromiso es ofrecer un servicio ágil, transparente y efectivo, garantizando seguridad patrimonial.',
+          img: '../../public/images/vision.jpg',
+          overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
           hoverText: 'text-indigo-100'
         },
         {
@@ -41,13 +41,13 @@
           icon: 'text-purple-600',
           title: 'Nuestros Valores',
           text: 'Confianza, eficacia, profesionalismo, transparencia y compromiso. Actuamos con honestidad y rapidez, comunicando siempre con claridad y protegiendo tus derechos y arrendamientos como propios, para tu seguridad y tranquilidad a largo plazo.',
-          img: 'https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=600&q=80',
-          overlay: 'from-purple-900/85 via-pink-800/75 to-indigo-900/85',
+          img: '../../public/images/valores.jpg',
+          overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
           hoverText: 'text-purple-100',
           span: 'sm:col-span-2 lg:col-span-1'
         }
       ].map(card => (
-        <div class={`group relative bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden border border-slate-200/50 aspect-square ${card.span ?? ''}`}>
+        <div class={`group relative bg-white rounded-xl shadow-lg shadow-midnight hover:shadow-xl transition-all duration-500 overflow-hidden border border-slate-200/50 aspect-square ${card.span ?? ''}`}>
           <!-- Background -->
           <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out">
             <div class="absolute inset-0 bg-cover bg-center scale-110 group-hover:scale-100 transition-transform duration-700 ease-out" style={`background-image: url('${card.img}')`}></div>
@@ -59,12 +59,12 @@
             <div>
               <div class="flex items-start justify-between mb-3">
                 
-                <div class="text-3xl md:text-4xl font-bold text-slate-300 group-hover:text-white/30 transition-colors duration-500">{card.n}</div>
+                <div class="text-3xl md:text-4xl font-bold text-slate-500 group-hover:text-white/60 transition-colors duration-500">{card.n}</div>
               </div>
-              <h3 class="text-base font-semibold mb-1 text-slate-900 group-hover:text-white transition-colors duration-500 leading-tight">
+              <h3 class="text-md font-semibold mb-1 text-dorado-secundario group-hover:text-white transition-colors duration-500 leading-tight">
                 {card.title}
               </h3>
-              <p class={`text-sm text-slate-600 group-hover:${card.hoverText} leading-relaxed transition-colors duration-500`}>
+              <p class={`text-xs leading-0.5 mt-2 text-midnight group-hover:text-white group-hover:${card.hoverText} leading-relaxed transition-colors duration-500`}>
                 {card.text}
               </p>
             </div>

@@ -3,98 +3,88 @@ const faqData = [
   {
     id: 1,
     question: "¿Qué tipos de pólizas de seguro ofrecen?",
-    answer: "Ofrecemos una amplia gama de pólizas incluyendo seguro de vida, auto, hogar, salud, y seguros comerciales. Cada póliza está diseñada para adaptarse a las necesidades específicas de nuestros clientes y proporcionar la máxima protección.",
-    icon: "shield",
+    answer:
+      "Ofrecemos una amplia gama de pólizas incluyendo seguro de vida, auto, hogar, salud, y seguros comerciales. Cada póliza está diseñada para adaptarse a las necesidades específicas de nuestros clientes y proporcionar la máxima protección.",
   },
   {
     id: 2,
     question: "¿Cómo puedo presentar una reclamación?",
-    answer: "Puede presentar una reclamación de varias maneras: a través de nuestra aplicación móvil, llamando a nuestra línea directa 24/7, visitando cualquiera de nuestras oficinas, o completando el formulario en línea en nuestro sitio web. Nuestro equipo de expertos lo guiará durante todo el proceso.",
+    answer:
+      "Puede presentar una reclamación de varias maneras: a través de nuestra aplicación móvil, llamando a nuestra línea directa 24/7, visitando cualquiera de nuestras oficinas, o completando el formulario en línea en nuestro sitio web. Nuestro equipo de expertos lo guiará durante todo el proceso.",
     icon: "file-text",
   },
   {
     id: 3,
     question: "¿Cuánto tiempo tarda en procesarse una reclamación?",
-    answer: "El tiempo de procesamiento varía según el tipo de reclamación. Las reclamaciones simples pueden procesarse en 24-48 horas, mientras que las más complejas pueden tomar de 5 a 15 días hábiles. Mantenemos a nuestros clientes informados durante todo el proceso.",
+    answer:
+      "El tiempo de procesamiento varía según el tipo de reclamación. Las reclamaciones simples pueden procesarse en 24-48 horas, mientras que las más complejas pueden tomar de 5 a 15 días hábiles. Mantenemos a nuestros clientes informados durante todo el proceso.",
     icon: "clock",
   },
   {
     id: 4,
     question: "¿Puedo modificar mi póliza después de contratarla?",
-    answer: "Sí, puede modificar su póliza en cualquier momento. Esto incluye cambios en la cobertura, beneficiarios, o información personal. Algunos cambios pueden requerir una nueva evaluación de riesgo y podrían afectar su prima.",
+    answer:
+      "Sí, puede modificar su póliza en cualquier momento. Esto incluye cambios en la cobertura, beneficiarios, o información personal. Algunos cambios pueden requerir una nueva evaluación de riesgo y podrían afectar su prima.",
     icon: "file-text",
   },
   {
     id: 5,
     question: "¿Cómo puedo contactar al servicio al cliente?",
-    answer: "Nuestro servicio al cliente está disponible 24/7 a través de múltiples canales: teléfono (1-800-SEGUROS), chat en vivo en nuestro sitio web, email (soporte@seguros.com), o visitando cualquiera de nuestras 200+ oficinas en todo el país.",
+    answer:
+      "Nuestro servicio al cliente está disponible 24/7 a través de múltiples canales: teléfono (1-800-SEGUROS), chat en vivo en nuestro sitio web, email (soporte@seguros.com), o visitando cualquiera de nuestras 200+ oficinas en todo el país.",
     icon: "phone",
   },
   {
     id: 6,
     question: "¿Cuáles son los horarios y condiciones para la firma del contrato?",
-    answer: "La firma se realiza de lunes a viernes de 9:00 a 18:00 y los sábados hasta las 14:00. Se firma en oficina, salvo acuerdo previo (mínimo con 3 días de anticipación). Firmas fuera de Cuernavaca, Jiutepec o Temixco tienen un costo adicional desde $500. En días inhábiles, se aplica un cargo extra de $500.",
-    icon: "file-text",
+    answer:
+      "La firma se realiza de lunes a viernes de 9:00 a 18:00 y los sábados hasta las 14:00. Se firma en oficina, salvo acuerdo previo (mínimo con 3 días de anticipación). Firmas fuera de Cuernavaca, Jiutepec o Temixco tienen un costo adicional desde $500. En días inhábiles, se aplica un cargo extra de $500.",
   },
   {
     id: 7,
     question: "¿Quiénes deben firmar y cómo se realiza la firma?",
-    answer: "El arrendatario y su aval deben firmar presencialmente. La firma electrónica está disponible solo para propietarios, pero requiere ratificación. Todos deben estar presentes al mismo tiempo; no se permite firma por separado ni escalonada.",
-    icon: "shield",
+    answer:
+      "El arrendatario y su aval deben firmar presencialmente. La firma electrónica está disponible solo para propietarios, pero requiere ratificación. Todos deben estar presentes al mismo tiempo; no se permite firma por separado ni escalonada.",
   },
   {
     id: 8,
     question: "¿Cuánto cuesta y en qué consiste la investigación express?",
-    answer: "La investigación express tiene un costo adicional de $1,000 y debe solicitarse por anticipado. Permite obtener resultados en 1 día hábil.",
+    answer:
+      "La investigación express tiene un costo adicional de $1,000 y debe solicitarse por anticipado. Permite obtener resultados en 1 día hábil.",
     icon: "clock",
   },
   {
     id: 9,
     question: "¿Cuándo inicia la investigación y cuánto dura?",
-    answer: "La investigación comienza únicamente cuando se entregan todos los documentos requeridos. El tiempo estándar de respuesta es de 3 días hábiles.",
+    answer:
+      "La investigación comienza únicamente cuando se entregan todos los documentos requeridos. El tiempo estándar de respuesta es de 3 días hábiles.",
     icon: "clock",
   },
 ];
-
-
-const getIconSVG = (name: string) => {
-  const icons = {
-    shield: `<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.5 7.5S5 18 5 13V6l7.5-3L20 6v7Z"/><path d="m9 12 2 2 4-4"/></svg>`,
-    'file-text': `<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>`,
-    clock: `<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`,
-    phone: `<svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2c-6.88-1.29-12.42-6.83-13.71-13.71A2 2 0 0 1 4.11 4h3a2 2 0 0 1 2 1.72c.12.96.4 1.9.83 2.77a2 2 0 0 1-.45 2.11L8.1 11.1a16 16 0 0 0 6 6l1.5-1.5a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
-  };
-  return icons[name] ?? icons.shield;
-};
 ---
-
-
-
-
 
 <section class="max-w-3xl mx-auto px-4 py-16">
   <header class="text-center mb-10">
-    <div class="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mx-auto mb-4">
-      <Fragment set:html={getIconSVG("shield")} />
+    <div class="w-12 h-12 mx-auto mb-4">
+      <img src="/images/faq.png" alt="Preguntas Frecuentes" class="w-12 h-12 object-contain" />
     </div>
-    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Preguntas Frecuentes</h2>
+    <h2 class="text-2xl sm:text-3xl font-bold text-midnight">Preguntas Frecuentes</h2>
     <p class="text-gray-600 text-base sm:text-lg mt-2">Encuentra respuestas sobre nuestras pólizas de seguro</p>
   </header>
 
   <div class="space-y-4">
     {faqData.map((faq) => (
-      <div class="border border-transparent rounded-md overflow-hidden">
+      <div class="border border-transparent rounded-md">
         <button
-          class="w-full flex justify-between items-center text-left px-4 py-3 bg-white transition-colors"
+          class="w-full flex justify-between items-center text-left px-4 py-3 bg-white"
           aria-expanded="false"
           data-faq-id={faq.id}
         >
-          <div class="flex items-center gap-3">
-            <div innerHTML={getIconSVG(faq.icon)}></div>
-            <span class="font-medium text-gray-900 text-sm sm:text-base">{faq.question}</span>
+          <div class="flex items-center gap-3 w-full">
+            <span class="font-medium text-midnight text-sm sm:text-base">{faq.question}</span>
           </div>
-          <svg class="w-5 h-5 text-gray-700 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="m6 9 6 6 6-6"/>
+          <svg class="w-5 h-5 text-amber-600 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="m6 9 6 6 6-6" />
           </svg>
         </button>
         <div class="faq-answer max-h-0 overflow-hidden opacity-0 transition-all duration-700 ease-in-out px-4">
@@ -104,17 +94,12 @@ const getIconSVG = (name: string) => {
     ))}
   </div>
 
- <!-- Botón de descarga -->
   <div class="mt-10 text-center">
-    <a href="/docs/condiciones-poliza.pdf" download class="inline-block bg-blue-700 text-white px-6 py-3 rounded-full shadow-md hover:bg-blue-800 transition">
-      Ver Terminos y Condiciones (PDF)
+    <a href="/docs/condiciones-poliza.pdf" download class="inline-block text-md bg-blue-950 text-white px-4 py-2 rounded-full shadow-md hover:bg-azul-shadedos transition">
+      Ver Términos y Condiciones (PDF)
     </a>
   </div>
-
-  
 </section>
-
-
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -128,14 +113,6 @@ const getIconSVG = (name: string) => {
 
         const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
-        // Cerrar todos (opcional)
-        // document.querySelectorAll('.faq-answer').forEach(el => {
-        //   el.style.maxHeight = null;
-        //   el.style.opacity = 0;
-        // });
-        // document.querySelectorAll('[aria-expanded]').forEach(b => b.setAttribute('aria-expanded', 'false'));
-
-        // Toggle actual
         if (isOpen) {
           btn.setAttribute('aria-expanded', 'false');
           answer.style.maxHeight = null;
