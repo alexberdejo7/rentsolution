@@ -42,7 +42,7 @@ const CheckCircleIcon = `
 `;
 ---
 
-<section id="servicios" class="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/50 to-amber-50/30">
+<section id="servicios" class="py-10 relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/50 to-amber-50/30">
   <!-- Elementos decorativos mejorados -->
   <div class="absolute inset-0 z-0 pointer-events-none">
     <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-500/10 to-blue-600/5 rounded-full blur-3xl animate-pulse"></div>
@@ -50,18 +50,18 @@ const CheckCircleIcon = `
     <div class="absolute bottom-1/4 left-1/3 w-80 h-80 bg-gradient-to-r from-indigo-500/10 to-purple-400/5 rounded-full blur-3xl animate-pulse animation-delay-4000"></div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <div class="max-w-7xl font-family-poppins mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Header mejorado -->
     <div class="text-center mb-20">
       <div class="inline-flex items-center justify-center p-1 bg-gradient-to-r from-azul-primario via-amber-800 to-dorado-secundario rounded-full mb-2">
-        <span class="px-4 py-1 bg-white rounded-full text-sm font-semibold text-midnight shadow-sm">
+        <span class="px-4 py-1 font-raleway bg-white rounded-full text-sm font-extrabold text-midnight shadow-sm">
           Servicios Especializados
         </span>
       </div>
-      <h2 class="text-5xl font-bold text-midnight mb-6">
+      <h2 class="text-2xl md:text-4xl font-raleway font-bold text-midnight mt-3">
         Nuestros <span class="text-dorado-secundario">Servicios</span>
       </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      <p class="text-xs md:text-lg font-poppins font-thin text-gray-600 max-w-3xl mx-auto leading-relaxed">
         Protección jurídica integral para propietarios en procesos de arrendamiento con el respaldo que necesitas
       </p>
     </div>
@@ -77,7 +77,7 @@ const CheckCircleIcon = `
             <div class={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient}`}></div>
             
             <!-- Contenedor del icono sin shadow problemática -->
-            <div class="relative mb-6">
+            <div class="relative mb-3">
               <!-- Fondo decorativo para el icono -->
               <div class={`absolute inset-0 ${service.iconBgClass} rounded-2xl blur-sm opacity-50 group-hover:opacity-50 transition-opacity duration-300`}></div>
               <div class="relative w-20 h-20 mx-auto flex items-center justify-center">
@@ -90,36 +90,36 @@ const CheckCircleIcon = `
               </div>
             </div>
             
-            <!-- Título mejorado -->
-            <h3 class="text-2xl font-bold text-gray-800 mb-4 group-hover:text-blue-700 transition-colors duration-300 text-center"> 
+            {/* <!-- Título mejorado --> */}
+            <h3 class="text-md md:text-lg font-montserrat font-bold text-gray-800 mb-4 group-hover:text-blue-700 transition-colors duration-300 text-center"> 
               {service.title}
             </h3>
             
-            <!-- Descripción mejorada -->
-            <p class="text-gray-600 mb-6 leading-relaxed text-center"> 
+            {/* <!-- Descripción mejorada --> */}
+            <p class="text-gray-600 mb-4 font-poppins font-thin text-xs md:text-[16px] leading-relaxed text-center"> 
               {service.description}
             </p>
             
-            <!-- Lista de características rediseñada -->
-            <div class="space-y-3">
+            {/* <!-- Lista de características rediseñada --> */}
+            <div class="space-y-0.5">
               {service.features.map((feature) => (
                 <div class="flex items-start">
                   <div class="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center mr-3 mt-0.5">
                     <Fragment set:html={CheckCircleIcon} class="w-3 h-3 text-white" />
                   </div>
-                  <span class="text-gray-700 text-sm leading-relaxed">{feature}</span>
+                  <span class="text-gray-700 text-sm md:text-[14px] font-poppins leading-relaxed">{feature}</span>
                 </div>
               ))}
             </div>
             
-            <!-- Elemento decorativo inferior -->
+            {/* <!-- Elemento decorativo inferior --> */}
             <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-gray-50/50 to-transparent pointer-events-none"></div>
             
-            <!-- Indicador de hover -->
+            {/* <!-- Indicador de hover --> */}
             <div class={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r ${service.gradient} group-hover:w-3/4 transition-all duration-500 rounded-full`}></div>
           </div>
           
-          <!-- Número de servicio decorativo -->
+          {/* <!-- Número de servicio decorativo --> */}
           <div class="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-lg z-10">
             <span class="text-xl font-bold text-gray-600">{(index + 1).toString().padStart(2, '0')}</span>
           </div>
