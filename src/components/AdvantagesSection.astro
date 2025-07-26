@@ -1,10 +1,44 @@
+---
+const cards = [
+  {
+    n: '01',
+    bg: 'bg-blue-100',
+    icon: 'text-blue-600',
+    title: 'Mision',
+    text: 'Ser el despacho líder y referente en protección jurídica de arrendamientos, reconocido por nuestra eficacia, profesionalismo y la tranquilidad que brindamos a nuestros clientes.',
+    img: '/images/office.jpg',
+    overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
+    hoverText: 'text-blue-100'
+  },
+  {
+    n: '02',
+    bg: 'bg-indigo-100',
+    icon: 'text-indigo-600',
+    title: 'Vision',
+    text: 'Proporcionar soluciones jurídicas integrales en materia de arrendamiento, a través de la emisión y gestión de pólizas jurídicas que salvaguardan los intereses de propietarios e inquilinos.',
+    img: '/images/vision.jpg',
+    overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
+    hoverText: 'text-indigo-100'
+  },
+  {
+    n: '03',
+    bg: 'bg-purple-100',
+    icon: 'text-purple-600',
+    title: 'Nuestros Valores',
+    text: 'Confianza, eficacia, profesionalismo, transparencia y compromiso. Actuamos con honestidad y rapidez, comunicando siempre con claridad y protegiendo tus derechos y arrendamientos como propios.',
+    img: '/images/valores.jpg',
+    overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
+    hoverText: 'text-purple-100'
+  }
+]
+---
+
 <section id="ventajas" class="bg-gradient-to-br from-slate-50 to-blue-50/30 py-16 px-4 md:px-8">
   <div class="max-w-5xl mx-auto">
-    <!-- Hero -->
+    <!-- Título -->
     <div class="text-center mb-12">
       <h2 class="text-2xl md:text-4xl font-raleway font-bold text-midnight mb-3 leading-tight">
-        Confíe en 
-        <span class="text-dorado-secundario">RentSolution</span>
+        Confíe en <span class="text-dorado-secundario">RentSolution</span>
       </h2>
       <p class="text-sm font-poppins md:text-lg font-thin text-gray-600 max-w-3xl mx-auto leading-relaxed">
         Protección integral para su propiedad
@@ -13,55 +47,39 @@
 
     <!-- Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 p-2">
-      {[ 
-        {
-          n: '01',
-          bg: 'bg-blue-100',
-          icon: 'text-blue-600',
-          title: 'Mision',
-          text: 'Ser el despacho líder y referente en protección jurídica de arrendamientos, reconocido por nuestra eficacia, profesionalismo y la tranquilidad que brindamos a nuestros clientes.',
-          img: '../../images/office.jpg',
-          overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
-          hoverText: 'text-blue-100'
-        },
-        {
-          n: '02',
-          bg: 'bg-indigo-100',
-          icon: 'text-indigo-600',
-          title: 'Vision',
-          text: 'Proporcionar soluciones jurídicas integrales en materia de arrendamiento, a través de la emisión y gestión de pólizas jurídicas que salvaguardan los intereses de propietarios e inquilinos.',
-          img: '../../images/vision.jpg',
-          overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
-          hoverText: 'text-indigo-100'
-        },
-        {
-          n: '03',
-          bg: 'bg-purple-100',
-          icon: 'text-purple-600',
-          title: 'Nuestros Valores',
-          text: 'Confianza, eficacia, profesionalismo, transparencia y compromiso. Actuamos con honestidad y rapidez, comunicando siempre con claridad y protegiendo tus derechos y arrendamientos como propios.',
-          img: '../../images/valores.jpg',
-          overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
-          hoverText: 'text-purple-100'
-        }
-      ].map(card => (
-        <div class={`group relative bg-white rounded-xl shadow-lg shadow-midnight hover:shadow-xl transition-all duration-500 overflow-hidden border border-slate-200/50 w-full min-h-[320px] flex flex-col ${card.span ?? ''}`}>
-          <!-- Background -->
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out">
-            <div class="absolute inset-0 bg-cover bg-center scale-110 group-hover:scale-100 transition-transform duration-700 ease-out" style={`background-image: url('${card.img}')`}></div>
+      {cards.map(card => (
+        <div
+          class={`group relative bg-white rounded-xl shadow-lg shadow-midnight hover:shadow-xl focus-within:shadow-xl active:shadow-xl transition-shadow duration-500 overflow-hidden border border-slate-200/50 w-full min-h-[320px] flex flex-col`}
+          tabindex="0"
+          aria-label={`${card.title}: ${card.text}`}
+        >
+          {/* Fondo animado */}
+          <div
+            class="absolute inset-0 opacity-0 group-hover:opacity-100 focus-within:opacity-100 active:opacity-100 transition-opacity duration-700 ease-out"
+          >
+            <div
+              class={`absolute inset-0 bg-cover bg-center scale-110 group-hover:scale-100 focus-within:scale-100 active:scale-100 transition-transform duration-700 ease-out`}
+              style={`background-image: url('${card.img}')`}
+            ></div>
             <div class={`absolute inset-0 bg-gradient-to-br ${card.overlay}`}></div>
           </div>
 
-          <!-- Content -->
-          <div class="relative z-10 p-4 flex flex-col justify-between h-full group-hover:text-white transition-colors duration-500">
+          {/* Contenido */}
+          <div class="relative z-10 p-4 flex flex-col justify-between h-full text-midnight transition-colors duration-500
+                      group-hover:text-white focus-within:text-white active:text-white">
             <div>
               <div class="flex items-start justify-between mb-2">
-                <div class="text-xl md:text-3xl font-montserrat font-extrabold text-slate-500 group-hover:text-white/60 transition-colors duration-500">{card.n}</div>
+                <div class={`text-xl md:text-3xl font-montserrat font-extrabold text-slate-500 group-hover:text-white/60 focus-within:text-white/60 active:text-white/60 transition-colors duration-500`}>
+                  {card.n}
+                </div>
               </div>
-              <h3 class="text-md font-raleway font-extrabold mb-1 text-dorado-secundario group-hover:text-white transition-colors duration-500 leading-tight">
+              <h3 class={`text-md font-raleway font-extrabold mb-1 text-dorado-secundario group-hover:text-white focus-within:text-white active:text-white transition-colors duration-500 leading-tight`}>
                 {card.title}
               </h3>
-              <p class={`text-sm mt-2 font-poppins text-balance font-light text-midnight group-hover:text-white group-hover:${card.hoverText} leading-relaxed transition-colors duration-500`}>
+              <p
+                class={`text-sm mt-2 font-poppins font-light text-balance leading-relaxed transition-colors duration-500
+                  group-hover:text-white focus-within:text-white active:text-white ${card.hoverText}`}
+              >
                 {card.text}
               </p>
             </div>
