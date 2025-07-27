@@ -1,5 +1,27 @@
 ---
 // Hero.astro
+const serviceItems = [
+  {
+    img: "/images/contratito.png",
+    alt: "Contrato personalizado",
+    text: "Contrato especializado",
+  },
+  {
+    img: "/images/martillo.png",
+    alt: "Defensa legal",
+    text: "Defensa legal",
+  },
+  {
+    img: "/images/gestion.png",
+    alt: "Gestión de cobros",
+    text: "Gestión de cobros",
+  },
+  {
+    img: "/images/times.png",
+    alt: "Respuesta 24/7",
+    text: "Respuesta 24/7",
+  },
+];
 ---
 
 <section
@@ -60,7 +82,7 @@
             href="https://wa.me/5217772701431"
             target="_blank"
             tabindex="0"
-            class="inline-flex items-center justify-center px-6 py-3 sm:px-4 sm:py-2 lg:px-4 lg:py-2 
+            class="cta-button inline-flex items-center justify-center px-6 py-3 sm:px-4 sm:py-2 lg:px-4 lg:py-2 
                    bg-dorado-secundario text-azul-primario rounded-2xl
                    hover:bg-gray-200 hover:text-azul-primario/90 focus:bg-gray-200 focus:text-azul-primario/90
                    transform hover:scale-[1.02] focus:scale-[1.02]
@@ -88,7 +110,7 @@
           <a
             href="#services"
             tabindex="0"
-            class="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 
+            class="cta-button inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 
                    rounded-2xl font-semibold bg-white/5 backdrop-blur-lg border border-white/50 
                    text-white hover:text-black focus:text-black hover:bg-white/70 focus:bg-white/70 hover:border-black/40 focus:border-black/40
                    transform hover:scale-[1.02] focus:scale-[1.02]
@@ -114,47 +136,29 @@
         </div>
 
         <section
-  class="lg:mt-12 mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-2 lg:gap-x-3 xl:gap-3 md:gap-7 sm:gap-4 max-w-[260px] sm:max-w-lg md:max-w-2xl lg:min-w-[1170px] xl:min-w-[1520px]"
->
-  {[
-    {
-      img: "/images/contratito.png",
-      alt: "Contrato personalizado",
-      text: "Contrato especializado",
-    },
-    {
-      img: "/images/martillo.png",
-      alt: "Defensa legal",
-      text: "Defensa legal",
-    },
-    {
-      img: "/images/gestion.png",
-      alt: "Gestión de cobros",
-      text: "Gestión de cobros",
-    },
-    {
-      img: "/images/times.png",
-      alt: "Respuesta 24/7",
-      text: "Respuesta 24/7",
-    },
-  ].map((item) => (
-    <div
-      class="flex items-center max-w-[200px] gap-3 p-1 rounded-lg bg-slate-700/20 backdrop-blur-md border border-white/30 
-             hover:bg-white/30 transition-colors duration-200 cursor-pointer"
-    >
-      <img
-        class="w-6 h-6 sm:w-8 sm:h-8 bg-dorado-secundario rounded-2xl p-1 flex-shrink-0
-               transition-colors duration-200 hover:bg-white"
-        src={item.img}
-        alt={item.alt}
-      />
-      <span class="text-[11px] sm:text-xs font-thin font-poppins text-white hover:text-azul-primario transition-colors duration-200">
-        {item.text}
-      </span>
+          class="lg:mt-12 mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-2 lg:gap-x-3 xl:gap-3 md:gap-7 sm:gap-4 max-w-[260px] sm:max-w-lg md:max-w-2xl lg:min-w-[1170px] xl:min-w-[1520px]"
+        >
+          {serviceItems.map((item, index) => (
+            <div
+              class="service-card flex items-center max-w-[200px] gap-3 p-1 rounded-lg bg-slate-700/20 backdrop-blur-md border border-white/30 
+                     hover:bg-white/30 transition-colors duration-200 cursor-pointer"
+              data-service-index={index}
+            >
+              <img
+                class="service-icon w-6 h-6 sm:w-8 sm:h-8 bg-dorado-secundario rounded-2xl p-1 flex-shrink-0
+                       transition-colors duration-200 hover:bg-white"
+                src={item.img}
+                alt={item.alt}
+              />
+              <span class="service-text text-[11px] sm:text-xs font-thin font-poppins text-white hover:text-azul-primario transition-colors duration-200">
+                {item.text}
+              </span>
+            </div>
+          ))}
+        </section>
+      </div>
     </div>
-  ))}
-</section>
-
+  </div>
 </section>
 
 <style>
@@ -178,4 +182,159 @@
   .animation-delay-4s {
     animation-delay: 4s;
   }
+
+  /* Hover effects para desktop en service cards */
+  .service-card:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .service-card:hover .service-icon {
+    background-color: white;
+  }
+
+  .service-card:hover .service-text {
+    color: var(--azul-primario);
+  }
+
+  /* Estados activos para touch/mobile en service cards */
+  .service-card.active {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .service-card.active .service-icon {
+    background-color: white;
+  }
+
+  .service-card.active .service-text {
+    color: var(--azul-primario);
+  }
+
+  /* Estados activos para botones CTA */
+  .cta-button.active {
+    transform: scale(1.02);
+  }
+
+  /* Hover effects para botones CTA en desktop */
+  .cta-button:hover svg,
+  .cta-button:focus svg {
+    transform: translateX(4px);
+  }
+
+  .cta-button.active svg {
+    transform: translateX(4px);
+  }
+
+  /* Mejorar la experiencia táctil */
+  @media (hover: none) and (pointer: coarse) {
+    .service-card,
+    .cta-button {
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+
+  /* Asegurar que las variables CSS estén definidas */
+  :root {
+    --azul-primario: #1e40af;
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const serviceCards = document.querySelectorAll('.service-card');
+    const ctaButtons = document.querySelectorAll('.cta-button');
+    let activeServiceCard = null;
+
+    // Función para activar una service card
+    function activateServiceCard(card) {
+      if (activeServiceCard && activeServiceCard !== card) {
+        activeServiceCard.classList.remove('active');
+      }
+      card.classList.add('active');
+      activeServiceCard = card;
+
+      // Auto-desactivar después de 2 segundos en móvil
+      if ('ontouchstart' in window) {
+        setTimeout(() => {
+          if (activeServiceCard === card) {
+            deactivateServiceCard(card);
+          }
+        }, 2000);
+      }
+    }
+
+    // Función para desactivar una service card
+    function deactivateServiceCard(card) {
+      card.classList.remove('active');
+      if (activeServiceCard === card) {
+        activeServiceCard = null;
+      }
+    }
+
+    // Event listeners para service cards
+    serviceCards.forEach(card => {
+      // Touch events para móviles
+      card.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        if (card.classList.contains('active')) {
+          deactivateServiceCard(card);
+        } else {
+          activateServiceCard(card);
+        }
+      }, { passive: false });
+
+      // Click events para desktop como fallback
+      card.addEventListener('click', (e) => {
+        if (!('ontouchstart' in window)) {
+          if (card.classList.contains('active')) {
+            deactivateServiceCard(card);
+          } else {
+            activateServiceCard(card);
+          }
+        }
+      });
+
+      // Mouse events para desktop (mantener comportamiento original)
+      card.addEventListener('mouseenter', () => {
+        if (!('ontouchstart' in window)) {
+          activateServiceCard(card);
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        if (!('ontouchstart' in window)) {
+          deactivateServiceCard(card);
+        }
+      });
+    });
+
+    // Event listeners para botones CTA (mejorar feedback táctil)
+    ctaButtons.forEach(button => {
+      button.addEventListener('touchstart', () => {
+        button.classList.add('active');
+      });
+
+      button.addEventListener('touchend', () => {
+        setTimeout(() => {
+          button.classList.remove('active');
+        }, 150);
+      });
+
+      button.addEventListener('touchcancel', () => {
+        button.classList.remove('active');
+      });
+    });
+
+    // Cerrar service cards activas al tocar fuera de ellas
+    document.addEventListener('touchstart', (e) => {
+      if (!e.target.closest('.service-card') && activeServiceCard) {
+        deactivateServiceCard(activeServiceCard);
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if ('ontouchstart' in window && !e.target.closest('.service-card') && activeServiceCard) {
+        deactivateServiceCard(activeServiceCard);
+      }
+    });
+  });
+</script>
