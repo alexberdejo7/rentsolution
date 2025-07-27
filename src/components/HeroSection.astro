@@ -113,46 +113,48 @@
           </a>
         </div>
 
-        <div class="lg:mt-12 mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-2 lg:gap-x-3 xl:gap-3 md:gap-7 sm:gap-4 max-w-[260px] sm:max-w-lg md:max-w-2xl lg:min-w-[1170px] xl:min-w-[1520px]  ">
-          <div class="flex items-center max-w-[200px] gap-3 p-1 rounded-lg bg-slate-700/20 backdrop-blur-md border border-white/30 hover:bg-white/30 transition-colors duration-200">
-            <img
-              class="w-6 h-6 sm:w-8 sm:h-8 bg-dorado-secundario rounded-2xl p-1 flex-shrink-0"
-              src="/images/contratito.png"
-              alt="Contrato personalizado"
-            />
-            <span class="text-[11px] sm:text-xs font-thin font-poppins text-white">Contrato especializado</span>
-          </div>
-
-          <div class="flex items-center max-w-[200px]  gap-3 p-1 rounded-lg bg-slate-700/20 backdrop-blur-md border border-white/30 hover:bg-white/30 transition-colors duration-200">
-            <img
-              class="w-6 h-6 sm:w-8 sm:h-8 bg-dorado-secundario rounded-2xl p-1 flex-shrink-0"
-              src="/images/martillo.png"
-              alt="Defensa legal"
-            />
-            <span class="text-[11px] sm:text-xs font-thin font-poppins text-white">Defensa legal</span>
-          </div>
-
-          <div class="flex items-center max-w-[200px]  gap-3 p-1 rounded-lg bg-slate-700/20 backdrop-blur-md border border-white/30 hover:bg-white/30 transition-colors duration-200">
-            <img
-              class="w-6 h-6 sm:w-8 sm:h-8 bg-dorado-secundario rounded-2xl p-1 flex-shrink-0"
-              src="/images/gestion.png"
-              alt="Gestión de cobros"
-            />
-            <span class="text-[11px] sm:text-xs font-thin font-poppins text-white">Gestión de cobros</span>
-          </div>
-
-          <div class="flex items-center max-w-[200px]  gap-3 p-1 rounded-lg bg-slate-700/20 backdrop-blur-md border border-white/30 hover:bg-white/30 transition-colors duration-200">
-            <img
-              class="w-6 h-6 sm:w-8 sm:h-8 bg-dorado-secundario rounded-2xl p-1 flex-shrink-0"
-              src="/images/times.png"
-              alt="Respuesta 24/7"
-            />
-            <span class="text-[11px] sm:text-xs font-thin font-poppins text-white">Respuesta 24/7</span>
-          </div>
-        </div>
-      </div>
+        <section
+  class="lg:mt-12 mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-2 lg:gap-x-3 xl:gap-3 md:gap-7 sm:gap-4 max-w-[260px] sm:max-w-lg md:max-w-2xl lg:min-w-[1170px] xl:min-w-[1520px]"
+>
+  {[
+    {
+      img: "/images/contratito.png",
+      alt: "Contrato personalizado",
+      text: "Contrato especializado",
+    },
+    {
+      img: "/images/martillo.png",
+      alt: "Defensa legal",
+      text: "Defensa legal",
+    },
+    {
+      img: "/images/gestion.png",
+      alt: "Gestión de cobros",
+      text: "Gestión de cobros",
+    },
+    {
+      img: "/images/times.png",
+      alt: "Respuesta 24/7",
+      text: "Respuesta 24/7",
+    },
+  ].map((item) => (
+    <div
+      class="flex items-center max-w-[200px] gap-3 p-1 rounded-lg bg-slate-700/20 backdrop-blur-md border border-white/30 
+             hover:bg-white/30 transition-colors duration-200 cursor-pointer"
+    >
+      <img
+        class="w-6 h-6 sm:w-8 sm:h-8 bg-dorado-secundario rounded-2xl p-1 flex-shrink-0
+               transition-colors duration-200 hover:bg-white"
+        src={item.img}
+        alt={item.alt}
+      />
+      <span class="text-[11px] sm:text-xs font-thin font-poppins text-white hover:text-azul-primario transition-colors duration-200">
+        {item.text}
+      </span>
     </div>
-  </div>
+  ))}
+</section>
+
 </section>
 
 <style>

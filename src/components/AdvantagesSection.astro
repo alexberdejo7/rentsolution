@@ -43,23 +43,23 @@
           hoverText: 'text-purple-100'
         }
       ].map(card => (
-        <div class={`group relative bg-white rounded-xl shadow-lg shadow-midnight hover:shadow-xl transition-all duration-500 overflow-hidden border border-slate-200/50 w-full min-h-[320px] flex flex-col ${card.span ?? ''}`}>
-          {/* Background - Always visible on mobile, hover effect on larger screens */}
-          <div class="absolute inset-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700 ease-out">
-            <div class="absolute inset-0 bg-cover bg-center scale-100 md:scale-110 md:group-hover:scale-100 transition-transform duration-700 ease-out" style={`background-image: url('${card.img}')`}></div>
+        <div class={`card-hover-effect relative bg-white rounded-xl shadow-lg shadow-midnight hover:shadow-xl transition-all duration-500 overflow-hidden border border-slate-200/50 w-full min-h-[320px] flex flex-col ${card.span ?? ''}`}>
+          {/* Background */}
+          <div class="card-bg absolute inset-0 opacity-0 transition-opacity duration-700 ease-out">
+            <div class="card-bg-image absolute inset-0 bg-cover bg-center scale-110 transition-transform duration-700 ease-out" style={`background-image: url('${card.img}')`}></div>
             <div class={`absolute inset-0 bg-gradient-to-br ${card.overlay}`}></div>
           </div>
 
-          {/* Content - Text color changes on mobile, and on hover for larger screens */}
-          <div class="relative z-10 p-4 flex flex-col justify-between h-full text-white md:text-midnight md:group-hover:text-white transition-colors duration-500">
+          {/* Content */}
+          <div class="card-content relative z-10 p-4 flex flex-col justify-between h-full text-midnight transition-colors duration-500">
             <div>
               <div class="flex items-start justify-between mb-2">
-                <div class="text-xl md:text-3xl font-montserrat font-extrabold text-white/60 md:text-slate-500 md:group-hover:text-white/60 transition-colors duration-500">{card.n}</div>
+                <div class="card-n-text text-xl md:text-3xl font-montserrat font-extrabold text-slate-500 transition-colors duration-500">{card.n}</div>
               </div>
-              <h3 class="text-md font-raleway font-extrabold mb-1 text-white md:text-dorado-secundario md:group-hover:text-white transition-colors duration-500 leading-tight">
+              <h3 class="card-title-text text-md font-raleway font-extrabold mb-1 text-dorado-secundario transition-colors duration-500 leading-tight">
                 {card.title}
               </h3>
-              <p class={`text-sm mt-2 font-poppins text-balance font-light text-white md:text-midnight md:group-hover:text-white md:group-hover:${card.hoverText} leading-relaxed transition-colors duration-500`}>
+              <p class={`card-text-main text-sm mt-2 font-poppins text-balance font-light text-midnight leading-relaxed transition-colors duration-500`}>
                 {card.text}
               </p>
             </div>
@@ -69,3 +69,43 @@
     </div>
   </div>
 </section>
+
+<style>
+  /* Hover effects sin usar group */
+  .card-hover-effect:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* shadow-xl */
+  }
+
+  .card-hover-effect:hover .card-bg {
+    opacity: 1;
+  }
+
+  .card-hover-effect:hover .card-bg-image {
+    transform: scale(1);
+  }
+
+  .card-hover-effect:hover .card-n-text {
+    color: rgba(255, 255, 255, 0.6); /* equivalente a white/60 */
+  }
+
+  .card-hover-effect:hover .card-title-text {
+    color: white;
+  }
+
+  .card-hover-effect:hover .card-text-main {
+    color: white;
+  }
+
+  /* Para manejar los colores hoverText específicos */
+  .card-hover-effect:nth-child(1):hover .card-text-main {
+    color: #bfdbfe; /* Tailwind's text-blue-100 */
+  }
+
+  .card-hover-effect:nth-child(2):hover .card-text-main {
+    color: #c7d2fe; /* Tailwind's text-indigo-100 */
+  }
+
+  .card-hover-effect:nth-child(3):hover .card-text-main {
+    color: #ddd6fe; /* Tailwind's text-purple-100 */
+  }
+</style>
