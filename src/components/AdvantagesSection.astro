@@ -1,35 +1,29 @@
 ---
-// VentajasSection.astro
+// VentajasSection.astro - Optimized
 const cards = [
   {
     n: '01',
-    bg: 'bg-blue-100',
-    icon: 'text-blue-600',
     title: 'Mision',
     text: 'Ser el despacho líder y referente en protección jurídica de arrendamientos, reconocido por nuestra eficacia, profesionalismo y la tranquilidad que brindamos a nuestros clientes.',
     img: '../../images/office.jpg',
     overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
-    hoverText: 'text-blue-100'
+    textColor: 'group-hover:text-blue-100 group-active:text-blue-100'
   },
   {
     n: '02',
-    bg: 'bg-indigo-100',
-    icon: 'text-indigo-600',
     title: 'Vision',
     text: 'Proporcionar soluciones jurídicas integrales en materia de arrendamiento, a través de la emisión y gestión de pólizas jurídicas que salvaguardan los intereses de propietarios e inquilinos.',
     img: '../../images/vision.jpg',
     overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
-    hoverText: 'text-indigo-100'
+    textColor: 'group-hover:text-indigo-100 group-active:text-indigo-100'
   },
   {
     n: '03',
-    bg: 'bg-purple-100',
-    icon: 'text-purple-600',
     title: 'Nuestros Valores',
     text: 'Confianza, eficacia, profesionalismo, transparencia y compromiso. Actuamos con honestidad y rapidez, comunicando siempre con claridad y protegiendo tus derechos y arrendamientos como propios.',
     img: '../../images/valores.jpg',
     overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
-    hoverText: 'text-purple-100'
+    textColor: 'group-hover:text-purple-100 group-active:text-purple-100'
   }
 ];
 ---
@@ -47,30 +41,47 @@ const cards = [
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 p-2">
-      {cards.map((card, index) => (
-        <div 
-          class="card-hover-effect relative bg-white rounded-xl shadow-lg shadow-midnight hover:shadow-xl transition-all duration-500 overflow-hidden border border-slate-200/50 w-full min-h-[320px] flex flex-col cursor-pointer"
-          data-card-index={index}
-        >
-          {/* Background */}
-          <div class="card-bg absolute inset-0 opacity-0 transition-opacity duration-700 ease-out">
-            <div 
-              class="card-bg-image absolute inset-0 bg-cover bg-center scale-110 transition-transform duration-700 ease-out" 
-              style={`background-image: url('${card.img}')`}
-            ></div>
+      {cards.map((card) => (
+        <div class="group relative bg-white rounded-xl shadow-lg shadow-midnight 
+                    hover:shadow-xl active:shadow-xl active:scale-[0.98]
+                    transition-all duration-500 overflow-hidden border border-slate-200/50 
+                    w-full min-h-[320px] flex flex-col cursor-pointer touch-manipulation
+                    [@media(hover:none)]:active:shadow-xl">
+          
+          {/* Background Image with Overlay */}
+          <div class="absolute inset-0 opacity-0 
+                      group-hover:opacity-100 group-active:opacity-100
+                      transition-opacity duration-700 ease-out">
+            <div class="absolute inset-0 bg-cover bg-center 
+                        scale-110 group-hover:scale-100 group-active:scale-100
+                        transition-transform duration-700 ease-out" 
+                 style={`background-image: url('${card.img}')`}>
+            </div>
             <div class={`absolute inset-0 bg-gradient-to-br ${card.overlay}`}></div>
           </div>
 
           {/* Content */}
-          <div class="card-content relative z-10 p-4 flex flex-col justify-between h-full text-midnight transition-colors duration-500">
+          <div class="relative z-10 p-4 flex flex-col justify-between h-full 
+                      text-midnight group-hover:text-white group-active:text-white
+                      transition-colors duration-500">
             <div>
               <div class="flex items-start justify-between mb-2">
-                <div class="card-n-text text-xl md:text-3xl font-montserrat font-extrabold text-slate-500 transition-colors duration-500">{card.n}</div>
+                <div class="text-xl md:text-3xl font-montserrat font-extrabold 
+                           text-slate-500 group-hover:text-white/60 group-active:text-white/60
+                           transition-colors duration-500">
+                  {card.n}
+                </div>
               </div>
-              <h3 class="card-title-text text-md font-raleway font-extrabold mb-1 text-dorado-secundario transition-colors duration-500 leading-tight">
+              
+              <h3 class="text-md font-raleway font-extrabold mb-1 
+                         text-dorado-secundario group-hover:text-white group-active:text-white
+                         transition-colors duration-500 leading-tight">
                 {card.title}
               </h3>
-              <p class="card-text-main text-sm mt-2 font-poppins text-balance font-light text-midnight leading-relaxed transition-colors duration-500">
+              
+              <p class={`text-sm mt-2 font-poppins text-balance font-light 
+                         text-midnight transition-colors duration-500 leading-relaxed
+                         group-hover:text-white group-active:text-white ${card.textColor}`}>
                 {card.text}
               </p>
             </div>
@@ -80,162 +91,3 @@ const cards = [
     </div>
   </div>
 </section>
-
-<style>
-  /* Hover effects para desktop */
-  .card-hover-effect:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  }
-
-  .card-hover-effect:hover .card-bg {
-    opacity: 1;
-  }
-
-  .card-hover-effect:hover .card-bg-image {
-    transform: scale(1);
-  }
-
-  .card-hover-effect:hover .card-n-text {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .card-hover-effect:hover .card-title-text {
-    color: white;
-  }
-
-  .card-hover-effect:hover .card-text-main {
-    color: white;
-  }
-
-  /* Colores específicos para cada card en hover */
-  .card-hover-effect:nth-child(1):hover .card-text-main {
-    color: #bfdbfe; /* text-blue-100 */
-  }
-
-  .card-hover-effect:nth-child(2):hover .card-text-main {
-    color: #c7d2fe; /* text-indigo-100 */
-  }
-
-  .card-hover-effect:nth-child(3):hover .card-text-main {
-    color: #ddd6fe; /* text-purple-100 */
-  }
-
-  /* Estados activos para touch/mobile */
-  .card-hover-effect.active {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  }
-
-  .card-hover-effect.active .card-bg {
-    opacity: 1;
-  }
-
-  .card-hover-effect.active .card-bg-image {
-    transform: scale(1);
-  }
-
-  .card-hover-effect.active .card-n-text {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .card-hover-effect.active .card-title-text {
-    color: white;
-  }
-
-  .card-hover-effect.active .card-text-main {
-    color: white;
-  }
-
-  /* Colores específicos para cada card en estado activo */
-  .card-hover-effect[data-card-index="0"].active .card-text-main {
-    color: #bfdbfe; /* text-blue-100 */
-  }
-
-  .card-hover-effect[data-card-index="1"].active .card-text-main {
-    color: #c7d2fe; /* text-indigo-100 */
-  }
-
-  .card-hover-effect[data-card-index="2"].active .card-text-main {
-    color: #ddd6fe; /* text-purple-100 */
-  }
-
-  /* Mejorar la experiencia táctil */
-  @media (hover: none) and (pointer: coarse) {
-    .card-hover-effect {
-      -webkit-tap-highlight-color: transparent;
-    }
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.card-hover-effect');
-    let activeCard = null;
-
-    // Función para activar una card
-    function activateCard(card) {
-      if (activeCard && activeCard !== card) {
-        activeCard.classList.remove('active');
-      }
-      card.classList.add('active');
-      activeCard = card;
-    }
-
-    // Función para desactivar una card
-    function deactivateCard(card) {
-      card.classList.remove('active');
-      if (activeCard === card) {
-        activeCard = null;
-      }
-    }
-
-    cards.forEach(card => {
-      // Touch events para móviles
-      card.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        if (card.classList.contains('active')) {
-          deactivateCard(card);
-        } else {
-          activateCard(card);
-        }
-      }, { passive: false });
-
-      // Click events para desktop como fallback
-      card.addEventListener('click', (e) => {
-        // Solo manejar clicks en dispositivos sin touch o como fallback
-        if (!('ontouchstart' in window)) {
-          if (card.classList.contains('active')) {
-            deactivateCard(card);
-          } else {
-            activateCard(card);
-          }
-        }
-      });
-
-      // Mouse events para desktop (mantener comportamiento original)
-      card.addEventListener('mouseenter', () => {
-        if (!('ontouchstart' in window)) {
-          activateCard(card);
-        }
-      });
-
-      card.addEventListener('mouseleave', () => {
-        if (!('ontouchstart' in window)) {
-          deactivateCard(card);
-        }
-      });
-    });
-
-    // Cerrar cards activas al tocar fuera de ellas
-    document.addEventListener('touchstart', (e) => {
-      if (!e.target.closest('.card-hover-effect') && activeCard) {
-        deactivateCard(activeCard);
-      }
-    });
-
-    document.addEventListener('click', (e) => {
-      if ('ontouchstart' in window && !e.target.closest('.card-hover-effect') && activeCard) {
-        deactivateCard(activeCard);
-      }
-    });
-  });
-</script>
