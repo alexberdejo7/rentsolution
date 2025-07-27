@@ -1,5 +1,5 @@
 ---
-// src/components/ServicesSection.astro - Pure Tailwind Optimized
+// src/components/ServicesSection.astro - Mobile Optimized
 
 interface Service {
   title: string;
@@ -39,7 +39,7 @@ const servicesData: Service[] = [
 ---
 
 <section id="services" class="py-10 relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/50 to-amber-50/30">
-  <!-- Elementos decorativos optimizados -->
+  <!-- Elementos decorativos -->
   <div class="absolute inset-0 z-0 pointer-events-none">
     <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-500/10 to-blue-600/5 rounded-full blur-3xl animate-pulse"></div>
     <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-gradient-to-r from-amber-400/10 to-orange-300/5 rounded-full blur-3xl animate-pulse [animation-delay:2s]"></div>
@@ -62,44 +62,33 @@ const servicesData: Service[] = [
       </p>
     </div>
 
-    <!-- Grid de servicios optimizado -->
+    <!-- Grid de servicios -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {servicesData.map((service, index) => (
-        <div class="group relative">
-          <!-- Card principal con efectos Tailwind puros -->
-          <div class="relative p-8 rounded-3xl bg-white/80 backdrop-blur-sm border border-white/50 
-                      shadow-xl hover:shadow-2xl active:shadow-2xl active:scale-[0.98]
-                      transition-all duration-500 
-                      hover:-translate-y-2 active:-translate-y-1
-                      overflow-hidden cursor-pointer touch-manipulation
-                      [@media(hover:none)]:active:shadow-2xl [@media(hover:none)]:active:-translate-y-1">
+        <div class="service-card relative cursor-pointer touch-manipulation" data-index={index}>
+          <!-- Card principal -->
+          <div class="card-main relative p-8 rounded-3xl bg-white/80 backdrop-blur-sm border border-white/50 
+                      shadow-xl transition-all duration-500 overflow-hidden">
             
             <!-- Gradiente decorativo superior -->
             <div class={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient}`}></div>
             
-            <!-- Contenedor del icono optimizado -->
+            <!-- Contenedor del icono -->
             <div class="relative mb-3">
               <!-- Fondo decorativo -->
-              <div class={`absolute inset-0 ${service.iconBgClass} rounded-2xl blur-sm opacity-50 
-                           group-hover:opacity-70 group-active:opacity-70
-                           transition-opacity duration-300`}></div>
+              <div class={`card-icon-bg absolute inset-0 ${service.iconBgClass} rounded-2xl blur-sm opacity-50 transition-opacity duration-300`}></div>
               <div class="relative w-20 h-20 mx-auto flex items-center justify-center">
-                <!-- Imagen optimizada -->
+                <!-- Imagen -->
                 <img 
                   src={service.icon} 
                   alt={service.title} 
-                  class="w-20 h-20 object-contain 
-                         drop-shadow-lg group-hover:drop-shadow-xl group-active:drop-shadow-xl
-                         group-hover:scale-110 group-active:scale-105
-                         transition-all duration-400" 
+                  class="card-icon w-20 h-20 object-contain drop-shadow-lg transition-all duration-400" 
                 />
               </div>
             </div>
             
-            <!-- Título optimizado -->
-            <h3 class="text-md md:text-lg font-montserrat font-bold text-gray-800 mb-4 
-                       group-hover:text-blue-700 group-active:text-blue-700
-                       transition-colors duration-300 text-center"> 
+            <!-- Título -->
+            <h3 class="card-title text-md md:text-lg font-montserrat font-bold text-gray-800 mb-4 transition-colors duration-300 text-center"> 
               {service.title}
             </h3>
             
@@ -111,11 +100,9 @@ const servicesData: Service[] = [
             <!-- Lista de características -->
             <div class="space-y-0.5">
               {service.features.map((feature) => (
-                <div class="flex items-start">
-                  <div class="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 
-                              flex items-center justify-center mr-3 mt-0.5
-                              group-hover:scale-110 group-active:scale-105
-                              transition-transform duration-300">
+                <div class="feature-item flex items-start transition-transform duration-200">
+                  <div class="feature-icon flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 
+                              flex items-center justify-center mr-3 mt-0.5 transition-transform duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" 
                          fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" 
                          stroke-linejoin="round" class="text-white">
@@ -133,18 +120,15 @@ const servicesData: Service[] = [
             <!-- Elemento decorativo inferior -->
             <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-gray-50/50 to-transparent pointer-events-none"></div>
             
-            <!-- Indicador de hover optimizado -->
-            <div class={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 
-                         w-0 group-hover:w-3/4 group-active:w-3/4
-                         h-0.5 bg-gradient-to-r ${service.gradient} 
+            <!-- Indicador de hover -->
+            <div class={`card-indicator absolute -bottom-2 left-1/2 transform -translate-x-1/2 
+                         w-0 h-0.5 bg-gradient-to-r ${service.gradient} 
                          transition-all duration-500 rounded-full`}></div>
           </div>
           
           <!-- Número de servicio -->
-          <div class="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 
-                      rounded-full flex items-center justify-center shadow-lg z-10
-                      group-hover:scale-110 group-active:scale-105
-                      transition-transform duration-300">
+          <div class="card-number absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-gray-100 to-gray-200 
+                      rounded-full flex items-center justify-center shadow-lg z-10 transition-transform duration-300">
             <span class="text-xl font-bold text-gray-600">
               {(index + 1).toString().padStart(2, '0')}
             </span>
@@ -155,7 +139,7 @@ const servicesData: Service[] = [
   </div>
 </section>
 
-<!-- CTA Optimizada -->
+<!-- CTA -->
 <section id="cta" class="relative bg-gradient-to-r from-azul-dos via-azul-shadedos to-midnight overflow-hidden py-12 px-4 text-center"> 
   <div class="absolute inset-0 opacity-10">
     <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -179,15 +163,12 @@ const servicesData: Service[] = [
 
     <div class="mt-6"> 
       <a href="https://wa.me/5217772701431" target="_blank" 
-         class="group inline-flex items-center px-4 py-2 bg-dorado-secundario text-azul-primario 
-                font-semibold rounded-full 
-                hover:bg-gray-200 active:bg-gray-200 active:scale-[0.98]
-                transition-all duration-200 shadow-md touch-manipulation">
+         class="cta-button inline-flex items-center px-4 py-2 bg-dorado-secundario text-azul-primario 
+                font-semibold rounded-full transition-all duration-200 shadow-md touch-manipulation">
         <span class="text-sm font-montserrat font-medium">Contáctanos</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" 
              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
-             stroke-linejoin="round" 
-             class="ml-2 group-hover:translate-x-1 group-active:translate-x-1 transition-transform duration-200">
+             stroke-linejoin="round" class="cta-arrow ml-2 transition-transform duration-200">
           <path d="M5 12h14"/>
           <path d="M12 5l7 7-7 7"/>
         </svg>
@@ -195,3 +176,164 @@ const servicesData: Service[] = [
     </div>
   </div>
 </section>
+
+<style>
+  /* Estados activos para touch */
+  .service-card.active .card-main {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  }
+
+  .service-card.active .card-icon-bg {
+    opacity: 0.7;
+  }
+
+  .service-card.active .card-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+  }
+
+  .service-card.active .card-title {
+    color: #1d4ed8; /* blue-700 */
+  }
+
+  .service-card.active .card-indicator {
+    width: 75%;
+  }
+
+  .service-card.active .card-number {
+    transform: scale(1.1);
+  }
+
+  .service-card.active .feature-item {
+    transform: scale(1.02);
+  }
+
+  .service-card.active .feature-icon {
+    transform: scale(1.1);
+  }
+
+  /* Estados hover para desktop */
+  @media (hover: hover) {
+    .service-card:hover .card-main {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .service-card:hover .card-icon-bg {
+      opacity: 0.7;
+    }
+
+    .service-card:hover .card-icon {
+      transform: scale(1.1);
+      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+    }
+
+    .service-card:hover .card-title {
+      color: #1d4ed8;
+    }
+
+    .service-card:hover .card-indicator {
+      width: 75%;
+    }
+
+    .service-card:hover .card-number {
+      transform: scale(1.1);
+    }
+
+    .service-card:hover .feature-item {
+      transform: scale(1.02);
+    }
+
+    .service-card:hover .feature-icon {
+      transform: scale(1.1);
+    }
+  }
+
+  /* CTA Button effects */
+  .cta-button.active {
+    background-color: #e5e7eb; /* gray-200 */
+    transform: scale(0.98);
+  }
+
+  .cta-button.active .cta-arrow {
+    transform: translateX(4px);
+  }
+
+  @media (hover: hover) {
+    .cta-button:hover {
+      background-color: #e5e7eb;
+    }
+
+    .cta-button:hover .cta-arrow {
+      transform: translateX(4px);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const serviceCards = document.querySelectorAll('.service-card');
+    const ctaButton = document.querySelector('.cta-button');
+    let activeCard = null;
+
+    // Service Cards
+    serviceCards.forEach(card => {
+      // Touch events
+      card.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        if (activeCard === card) {
+          card.classList.remove('active');
+          activeCard = null;
+        } else {
+          if (activeCard) activeCard.classList.remove('active');
+          card.classList.add('active');
+          activeCard = card;
+          
+          // Auto deactivate after 3 seconds
+          setTimeout(() => {
+            if (activeCard === card) {
+              card.classList.remove('active');
+              activeCard = null;
+            }
+          }, 3000);
+        }
+      }, { passive: false });
+
+      // Mouse events para desktop
+      if (!('ontouchstart' in window)) {
+        card.addEventListener('mouseenter', () => {
+          card.classList.add('active');
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.classList.remove('active');
+        });
+      }
+    });
+
+    // CTA Button
+    if (ctaButton) {
+      ctaButton.addEventListener('touchstart', () => {
+        ctaButton.classList.add('active');
+      });
+
+      ctaButton.addEventListener('touchend', () => {
+        setTimeout(() => ctaButton.classList.remove('active'), 150);
+      });
+
+      ctaButton.addEventListener('touchcancel', () => {
+        ctaButton.classList.remove('active');
+      });
+    }
+
+   document.addEventListener('touchstart', (e: TouchEvent) => {
+  const target = e.target;
+  if (activeCard && !(target instanceof Element && target.closest('.service-card'))) {
+    activeCard.classList.remove('active');
+    activeCard = null;
+  }
+});
+
+  });
+</script>

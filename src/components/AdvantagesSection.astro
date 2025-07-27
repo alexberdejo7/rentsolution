@@ -1,5 +1,5 @@
 ---
-// VentajasSection.astro - Optimized
+// VentajasSection.astro - Mobile Touch Optimized
 const cards = [
   {
     n: '01',
@@ -7,7 +7,7 @@ const cards = [
     text: 'Ser el despacho líder y referente en protección jurídica de arrendamientos, reconocido por nuestra eficacia, profesionalismo y la tranquilidad que brindamos a nuestros clientes.',
     img: '../../images/office.jpg',
     overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
-    textColor: 'group-hover:text-blue-100 group-active:text-blue-100'
+    textColor: 'group-[.active]:text-blue-100'
   },
   {
     n: '02',
@@ -15,7 +15,7 @@ const cards = [
     text: 'Proporcionar soluciones jurídicas integrales en materia de arrendamiento, a través de la emisión y gestión de pólizas jurídicas que salvaguardan los intereses de propietarios e inquilinos.',
     img: '../../images/vision.jpg',
     overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
-    textColor: 'group-hover:text-indigo-100 group-active:text-indigo-100'
+    textColor: 'group-[.active]:text-indigo-100'
   },
   {
     n: '03',
@@ -23,7 +23,7 @@ const cards = [
     text: 'Confianza, eficacia, profesionalismo, transparencia y compromiso. Actuamos con honestidad y rapidez, comunicando siempre con claridad y protegiendo tus derechos y arrendamientos como propios.',
     img: '../../images/valores.jpg',
     overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
-    textColor: 'group-hover:text-purple-100 group-active:text-purple-100'
+    textColor: 'group-[.active]:text-purple-100'
   }
 ];
 ---
@@ -41,19 +41,19 @@ const cards = [
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 p-2">
-      {cards.map((card) => (
-        <div class="group relative bg-white rounded-xl shadow-lg shadow-midnight 
-                    hover:shadow-xl active:shadow-xl active:scale-[0.98]
-                    transition-all duration-500 overflow-hidden border border-slate-200/50 
+      {cards.map((card, index) => (
+        <div class={`group relative bg-white rounded-xl shadow-lg shadow-midnight 
+                    hover:shadow-xl transition-all duration-500 overflow-hidden border border-slate-200/50 
                     w-full min-h-[320px] flex flex-col cursor-pointer touch-manipulation
-                    [@media(hover:none)]:active:shadow-xl">
+                    card-interactive`}
+             data-card={index}>
           
           {/* Background Image with Overlay */}
           <div class="absolute inset-0 opacity-0 
-                      group-hover:opacity-100 group-active:opacity-100
-                      transition-opacity duration-700 ease-out">
+                      group-hover:opacity-100 group-[.active]:opacity-100
+                      transition-opacity duration-700 ease-out card-overlay">
             <div class="absolute inset-0 bg-cover bg-center 
-                        scale-110 group-hover:scale-100 group-active:scale-100
+                        scale-110 group-hover:scale-100 group-[.active]:scale-100
                         transition-transform duration-700 ease-out" 
                  style={`background-image: url('${card.img}')`}>
             </div>
@@ -62,26 +62,26 @@ const cards = [
 
           {/* Content */}
           <div class="relative z-10 p-4 flex flex-col justify-between h-full 
-                      text-midnight group-hover:text-white group-active:text-white
-                      transition-colors duration-500">
+                      text-midnight group-hover:text-white group-[.active]:text-white
+                      transition-colors duration-500 card-content">
             <div>
               <div class="flex items-start justify-between mb-2">
                 <div class="text-xl md:text-3xl font-montserrat font-extrabold 
-                           text-slate-500 group-hover:text-white/60 group-active:text-white/60
-                           transition-colors duration-500">
+                           text-slate-500 group-hover:text-white/60 group-[.active]:text-white/60
+                           transition-colors duration-500 card-number">
                   {card.n}
                 </div>
               </div>
               
               <h3 class="text-md font-raleway font-extrabold mb-1 
-                         text-dorado-secundario group-hover:text-white group-active:text-white
-                         transition-colors duration-500 leading-tight">
+                         text-dorado-secundario group-hover:text-white group-[.active]:text-white
+                         transition-colors duration-500 leading-tight card-title">
                 {card.title}
               </h3>
               
               <p class={`text-sm mt-2 font-poppins text-balance font-light 
                          text-midnight transition-colors duration-500 leading-relaxed
-                         group-hover:text-white group-active:text-white ${card.textColor}`}>
+                         group-hover:text-white group-[.active]:text-white ${card.textColor} card-text`}>
                 {card.text}
               </p>
             </div>
@@ -91,3 +91,152 @@ const cards = [
     </div>
   </div>
 </section>
+
+<script>
+  // Enhanced mobile touch interaction
+  function initCardInteractions() {
+    const cards = document.querySelectorAll('.card-interactive');
+    let activeCard = null;
+    let touchTimeout = null;
+
+    // Detectar si es dispositivo táctil
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    cards.forEach((card, index) => {
+      // Para dispositivos táctiles
+      if (isTouchDevice) {
+        // Touch events
+        card.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          clearTimeout(touchTimeout);
+          
+          // Desactivar otras tarjetas
+          cards.forEach(c => c.classList.remove('active'));
+          
+          // Activar tarjeta actual
+          card.classList.add('active');
+          activeCard = card;
+        }, { passive: false });
+
+        card.addEventListener('touchend', (e) => {
+          e.preventDefault();
+          
+          // Mantener activa por un momento para ver la animación
+          touchTimeout = setTimeout(() => {
+            if (activeCard === card) {
+              card.classList.remove('active');
+              activeCard = null;
+            }
+          }, 2000); // 2 segundos
+        }, { passive: false });
+
+        // Click alternativo para móviles
+        card.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          if (card.classList.contains('active')) {
+            card.classList.remove('active');
+            activeCard = null;
+          } else {
+            cards.forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            activeCard = card;
+            
+            // Auto-desactivar después de 3 segundos
+            clearTimeout(touchTimeout);
+            touchTimeout = setTimeout(() => {
+              card.classList.remove('active');
+              activeCard = null;
+            }, 3000);
+          }
+        });
+      }
+      
+      // Para dispositivos de escritorio mantener hover normal
+      if (!isTouchDevice) {
+        card.addEventListener('mouseenter', () => {
+          cards.forEach(c => c.classList.remove('active'));
+        });
+      }
+    });
+
+    // Cerrar tarjeta activa al tocar fuera
+    document.addEventListener('touchstart', (e) => {
+      if (activeCard && !activeCard.contains(e.target)) {
+        activeCard.classList.remove('active');
+        activeCard = null;
+        clearTimeout(touchTimeout);
+      }
+    });
+
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && activeCard) {
+        activeCard.classList.remove('active');
+        activeCard = null;
+        clearTimeout(touchTimeout);
+      }
+    });
+  }
+
+  // Inicializar cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCardInteractions);
+  } else {
+    initCardInteractions();
+  }
+
+  // Re-inicializar en navegación SPA (para Astro con view transitions)
+  document.addEventListener('astro:page-load', initCardInteractions);
+</script>
+
+<style>
+  /* Mejoras adicionales para móvil */
+  .card-interactive {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  /* Estados activos para móvil */
+  .card-interactive.active {
+    transform: scale(0.98);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .card-interactive.active .card-overlay {
+    opacity: 1;
+  }
+
+  .card-interactive.active .card-content,
+  .card-interactive.active .card-title,
+  .card-interactive.active .card-text,
+  .card-interactive.active .card-number {
+    color: white;
+  }
+
+  .card-interactive.active .card-number {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Animación de escala para el fondo */
+  .card-interactive.active .card-overlay > div:first-child {
+    transform: scale(1);
+  }
+
+  /* Responsive improvements */
+  @media (max-width: 640px) {
+    .card-interactive {
+      min-height: 280px;
+    }
+    
+    .card-interactive.active {
+      transform: scale(0.99);
+    }
+  }
+
+  /* Mejorar accesibilidad */
+  .card-interactive:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+</style>
