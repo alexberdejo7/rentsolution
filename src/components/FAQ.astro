@@ -64,7 +64,9 @@ const faqData = [
 ---
 
 <section id="faq" class="max-w-3xl mx-auto px-4 py-16">
-  <header class="text-center mb-10">
+  <header data-aos="fade-zoom-in"
+     data-aos-duration="800"
+     class="text-center mb-10">
     <div class="w-12 h-12 mx-auto mb-4">
       <img src="/images/faq.png" alt="Preguntas Frecuentes" class="w-12 h-12 object-contain" />
     </div>
@@ -81,7 +83,9 @@ const faqData = [
           data-faq-id={faq.id}
         >
           <div class="flex items-center gap-3 w-full">
-            <span class="font-medium font-montserrat text-midnight text-sm md:text-[18px]">{faq.question}</span>
+            <span data-aos="fade-zoom-in"
+     data-aos-duration="600"
+     class="font-medium font-montserrat text-midnight text-sm md:text-[18px]">{faq.question}</span>
           </div>
           <svg class="w-5 h-5 text-amber-600 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="m6 9 6 6 6-6" />

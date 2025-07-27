@@ -4,6 +4,7 @@
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import '../styles/global.css';
+import 'aos/dist/aos.css';
 
 interface Props {
   title: string;
@@ -17,7 +18,7 @@ const { title } = Astro.props;
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <!-- En el <head> de tu layout -->
+   
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -28,9 +29,22 @@ const { title } = Astro.props;
     <title>{title}</title>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
+    
     <SiteHeader />
     <main class="flex-grow">
         <slot /> </main>
     <SiteFooter />
+
+    <script>
+  // Inicializar AOS de manera diferida
+  window.addEventListener('load', () => {
+    if (typeof window !== 'undefined') {
+      import('aos').then(AOS => {
+        AOS.init();
+      });
+    }
+  });
+</script>
+    
 </body>
 </html>

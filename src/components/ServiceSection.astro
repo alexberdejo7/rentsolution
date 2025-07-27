@@ -49,15 +49,18 @@ const servicesData: Service[] = [
   <div class="max-w-7xl font-family-poppins mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Header -->
     <div class="text-center mb-20">
-      <div class="inline-flex items-center justify-center p-1 bg-gradient-to-r from-azul-primario via-amber-800 to-dorado-secundario rounded-full mb-2">
+      <div data-aos="zoom-out"
+     data-aos-duration="600" class="inline-flex items-center justify-center p-1 bg-gradient-to-r from-azul-primario via-amber-800 to-dorado-secundario rounded-full mb-2">
         <span class="px-4 py-1 font-raleway bg-white rounded-full text-sm font-extrabold text-midnight shadow-sm">
           Servicios Especializados
         </span>
       </div>
-      <h2 class="text-2xl md:text-4xl font-raleway font-bold text-midnight mt-3">
+      <h2 data-aos="fade-zoom-in"
+     data-aos-duration="600" class="text-2xl md:text-4xl font-raleway font-bold text-midnight mt-3">
         Nuestros <span class="text-dorado-secundario">Servicios</span>
       </h2>
-      <p class="text-sm font-poppins md:text-lg font-thin text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      <p data-aos="fade-zoom-in"
+     data-aos-duration="600" class="text-sm font-poppins md:text-lg font-thin text-gray-600 max-w-3xl mx-auto leading-relaxed">
         Protección jurídica integral para propietarios en procesos de arrendamiento con el respaldo que necesitas
       </p>
     </div>
@@ -152,7 +155,10 @@ const servicesData: Service[] = [
     </svg>
   </div>
   
-  <div class="relative max-w-3xl mx-auto z-10"> 
+  <div 
+  data-aos="fade-left"
+     data-aos-duration="600"
+     class="relative max-w-3xl mx-auto z-10"> 
     <h2 class="text-xl md:text-3xl font-raleway font-black text-white mb-4 leading-tight"> 
       Asegura tu tranquilidad. <span class="text-dorado-secundario">Protege tu inversión.</span>
     </h2>
@@ -270,70 +276,99 @@ const servicesData: Service[] = [
     }
   }
 </style>
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const serviceCards = document.querySelectorAll('.service-card');
+    const container = document.querySelector('#services .grid');
     const ctaButton = document.querySelector('.cta-button');
-    let activeCard = null;
+    let activeCard: HTMLElement | null = null;
+    let autoDeactivateTimeout: number | null = null;
 
-    // Service Cards
-    serviceCards.forEach(card => {
-      // Touch events
-      card.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        if (activeCard === card) {
-          card.classList.remove('active');
-          activeCard = null;
-        } else {
-          if (activeCard) activeCard.classList.remove('active');
-          card.classList.add('active');
-          activeCard = card;
-          
-          // Auto deactivate after 3 seconds
-          setTimeout(() => {
-            if (activeCard === card) {
-              card.classList.remove('active');
-              activeCard = null;
-            }
-          }, 3000);
-        }
-      }, { passive: false });
+    if (!container) return;
 
-      // Mouse events para desktop
-      if (!('ontouchstart' in window)) {
-        card.addEventListener('mouseenter', () => {
-          card.classList.add('active');
-        });
-
-        card.addEventListener('mouseleave', () => {
-          card.classList.remove('active');
-        });
+    // Función para activar una card
+    function activateCard(card: HTMLElement) {
+      if (activeCard && activeCard !== card) {
+        deactivateCard(activeCard);
       }
-    });
+      card.classList.add('active');
+      activeCard = card;
 
-    // CTA Button
+      // Auto desactivar después de 3 segundos
+      if (autoDeactivateTimeout) {
+        clearTimeout(autoDeactivateTimeout);
+      }
+      autoDeactivateTimeout = window.setTimeout(() => {
+        deactivateCard(card);
+      }, 3000);
+    }
+
+    // Función para desactivar una card
+    function deactivateCard(card: HTMLElement) {
+      card.classList.remove('active');
+      if (activeCard === card) {
+        activeCard = null;
+      }
+      if (autoDeactivateTimeout) {
+        clearTimeout(autoDeactivateTimeout);
+        autoDeactivateTimeout = null;
+      }
+    }
+
+    // Evento touchstart para las cards usando delegación
+    container.addEventListener('touchstart', (e: TouchEvent) => {
+      const target = e.target as Element | null;
+      if (!target) return;
+
+      const card = target.closest('.service-card') as HTMLElement | null;
+      if (!card) {
+        // Tocar fuera de cards => desactivar activeCard si hay
+        if (activeCard) {
+          deactivateCard(activeCard);
+        }
+        return;
+      }
+
+      // Si tocan la card activa => desactivarla
+      if (activeCard === card) {
+        deactivateCard(card);
+      } else {
+        activateCard(card);
+      }
+
+      // Solo prevenir si tocamos una card para evitar scroll accidental
+      e.preventDefault();
+    }, { passive: false });
+
+    // Para mouse hover en desktop (solo si no hay touch)
+    if (!('ontouchstart' in window)) {
+      container.addEventListener('mouseenter', (e) => {
+        const card = (e.target as Element).closest('.service-card');
+        if (card) {
+          (card as HTMLElement).classList.add('active');
+        }
+      }, true); // usar captura para atrapar el evento antes
+
+      container.addEventListener('mouseleave', (e) => {
+        const card = (e.target as Element).closest('.service-card');
+        if (card) {
+          (card as HTMLElement).classList.remove('active');
+        }
+      }, true);
+    }
+
+    // CTA Button effects (sin cambios)
     if (ctaButton) {
       ctaButton.addEventListener('touchstart', () => {
         ctaButton.classList.add('active');
-      });
+      }, { passive: true });
 
       ctaButton.addEventListener('touchend', () => {
         setTimeout(() => ctaButton.classList.remove('active'), 150);
-      });
+      }, { passive: true });
 
       ctaButton.addEventListener('touchcancel', () => {
         ctaButton.classList.remove('active');
-      });
+      }, { passive: true });
     }
-
-   document.addEventListener('touchstart', (e: TouchEvent) => {
-  const target = e.target;
-  if (activeCard && !(target instanceof Element && target.closest('.service-card'))) {
-    activeCard.classList.remove('active');
-    activeCard = null;
-  }
-});
-
   });
 </script>
