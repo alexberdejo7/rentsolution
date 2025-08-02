@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@import "tailwindcss";
-
 @theme {
   /* Fuentes personalizadas */
   --font-poppins: "Poppins", system-ui, sans-serif;
@@ -10,31 +8,12 @@
   
   /* Colores personalizados */
   --color-azul-primario: #102c54;
-  --color-dorado-secundario: #ceac3d;
+  --color-dorado-secundario: #AD9453;
   --color-tercero: #28a745;
-  --color-azul-dos: #002857;
+  --color-azul-dos: #2F2C6D;
   --color-azul-shade: #00244e;
   --color-azul-shadedos: #001c3d;
   --color-midnight: #001b45;
-}
-
-/* Animaciones (las que ya tenías) */
-@keyframes blob {
-  0%, 100% { transform: translate(0px, 0px) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-}
-
-@keyframes pulse-light {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(0.98); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  25% { transform: translateY(-10px) translateX(5px); }
-  50% { transform: translateY(0) translateX(10px); }
-  75% { transform: translateY(10px) translateX(5px); }
 }
 
 /* Animaciones (las que ya tenías) */

@@ -30,6 +30,12 @@ const serviceItems = [
          bg-[url('/images/hero1.PNG')] bg-center sm:bg-right bg-no-repeat bg-cover"
 >
   <div class="absolute inset-0 bg-midnight/15 z-0"></div>
+  <!-- ✅ Logo decorativo en escritorio -->
+  <img
+    src="../../public/images/LOGORENT.png"
+    alt="Logo decorativo"
+    class="brightness-105 absolute  top-10 right-10 w-44 h-40 hidden md:block z-30"
+  />
 
   <div class="absolute inset-0 z-0">
     <div
@@ -72,7 +78,7 @@ const serviceItems = [
           <p class="text-xs text-balance font-poppins font-thin text-left sm:text-lg lg:text-md xl:text-lg text-blue-100/90 leading-relaxed">
             Brindamos <span class="text-dorado-secundario font-semibold">seguridad</span>,{' '}
             <span class="text-dorado-secundario font-semibold">respaldo legal</span> y{' '}
-            <strong class="text-dorado-secundario">tranquilidad total</strong> en cada etapa del
+            <strong class="text-dorado-secundario font-semibold">tranquilidad total</strong> en cada etapa del
             arrendamiento, tanto para propietarios como inquilinos.
           </p>
         </div>
@@ -158,11 +164,13 @@ const serviceItems = [
               </span>
             </div>
           ))}
+          
         </section>
       </div>
     </div>
   </div>
 </section>
+
 
 <style>
   @keyframes floating {

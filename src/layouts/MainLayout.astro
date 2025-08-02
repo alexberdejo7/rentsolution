@@ -29,7 +29,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 </head>
-<body class="min-h-screen flex flex-col antialiased">
+<body class="min-h-screen flex flex-col antialiased bg-slate-100">
     
     <SiteHeader />
     <main class="flex-grow">
@@ -46,6 +46,8 @@ const { title } = Astro.props;
     }
   });
 </script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     
 </body>
 </html>
