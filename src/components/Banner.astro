@@ -1,87 +1,50 @@
 ---
-const logos = [
-  { src: "/images/evo.jpg", href: "https://www.facebook.com/evolucion.habitat" },
-  { src: "/images/vive.png", href: "https://vivecontempo.com/" },
-  { src: "/images/agl.webp", href: "https://agljuridicoinmobiliario.com/" },
+const aliados = [
+  {
+    src: "/images/evo2.png",
+    href: "https://www.facebook.com/evolucion.habitat",
+    alt: "Evolución Habitat",
+    desc: "Servicios Inmobiliarios"
+  },
+  {
+    src: "/images/vive.png",
+    href: "https://vivecontempo.com/",
+    alt: "Vive Contempo",
+    desc: "Bienes raices de calidad"
+  },
+  {
+    src: "/images/agl.webp",
+    href: "https://agljuridicoinmobiliario.com/",
+    alt: "AGL Jurídico Inmobiliario",
+    desc: "Expertos en Remates Hipotecarios  "
+  }
 ];
 ---
-<section class="mt-7 mb-10 md:px-6 xl:px-0 flex flex-col items-center text-center bg-slate-100">
-  <h2 class="text-2xl md:text-3xl font-raleway font-black text-azul-primario mb-3 md:mb-4 px-2 md:px-0">
-    Empresas Aliadas
-  </h2>
-  <p class="text-sm font-poppins md:text-lg text-gray-600 font-thin max-w-2xl mx-auto px-2 md:px-0">
-    Aliados estratégicos en bienes raíces, pólizas y remates que comparten nuestro compromiso contigo.
-  </p>
 
-  <div class="marquee-wrapper overflow-hidden h-20 w-full max-w-[950px] mx-auto px-4 md:px-8 bg-slate-100">
-    <div
-      class="marquee flex w-max items-center h-full select-none"
-      onmouseover="this.style.animationPlayState='paused'"
-      onmouseout="this.style.animationPlayState='running'"
-    >
-      {[...logos, ...logos].map(({ src, href }, i) => {
-        const isAGL = src.includes("agl");
-        return (
-          <a
-           
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center"
-          >
-            <img
-              src={src}
-              alt={`Logo alianza estratégica ${i + 1}`}
-              loading="lazy"
-              class={`object-contain drop-shadow-md ${
-                isAGL ? 'h-24' : 'h-16'
-              } w-24`}
-            />
-          </a>
-        );
-      })}
+<section id="aliados" class="bg-slate-100 py-16 text-black ">
+
+  <div class="max-w-6xl mx-auto px-4 md:px-8">
+    <h2 class="text-center font-montserrat text-azul-primario text-2xl md:text-3xl font-semibold mb-12">
+      Nuestros aliados
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 items-center justify-items-center">
+      {aliados.map((aliado) => (
+        <a
+          href={aliado.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-col items-center text-center hover:scale-110 transition-transform duration-300"
+        >
+          <img
+            src={aliado.src}
+            alt={aliado.alt}
+            class="h-20 w-20 md:h-24 md:w-24 object-contain brightness-90 hover:brightness-110 transition-all duration-300"
+          />
+          <p class="text-sm text-azul-primario font-thin font-poppins  mt-4 max-w-xs group-hover:text-black transition-colors duration-400">
+            {aliado.desc}
+          </p>
+        </a>
+      ))}
     </div>
   </div>
 </section>
-
-<style>
-  /* Animación marquee */
-  @keyframes marqueeAnim {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%); /* Moves exactly half the total width of the duplicated content */
-    }
-  }
-
-  .marquee {
-    animation: marqueeAnim 25s linear infinite;
-    white-space: nowrap;
-    will-change: transform;
-    display: flex;
-    gap: 0; /* Remove fixed gap here */
-  }
-
-  .marquee a {
-    display: inline-flex;
-    padding: 0 2.5rem; /* Adjust padding to control spacing between logos */
-    flex-shrink: 0;
-  }
-
-  .marquee-wrapper {
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, transparent 0px, black 2rem, black calc(100% - 2rem), transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0px, black 2rem, black calc(100% - 2rem), transparent 100%);
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  /* Máscara responsive */
-  @media (max-width: 768px) {
-    .marquee-wrapper {
-      -webkit-mask-image: linear-gradient(to right, transparent 0px, black 1rem, black calc(100% - 1rem), transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0px, black 1rem, black calc(100% - 1rem), transparent 100%);
-    }
-  }
-</style>
