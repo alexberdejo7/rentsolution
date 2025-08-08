@@ -1,0 +1,62 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+interface Frontmatter {
+  title: string;
+  date: string;
+  description?: string;
+}
+
+interface MarkdownModule {
+  frontmatter: Frontmatter;
+  Content: any;
+}
+
+interface PostFrontmatter extends Frontmatter {
+  slug: string;
+}
+
+const postModules = import.meta.glob('../../content/polizas/*.md', { eager: true });
+
+const posts: PostFrontmatter[] = Object.entries(postModules).map(([path, module]) => {
+  // Hacemos assertion para que TS entienda el tipo de module
+  const mdModule = module as MarkdownModule;
+  const slug = path.split('/').pop()!.replace('.md', '');
+
+  return {
+    slug,
+    ...mdModule.frontmatter,
+  };
+}).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<MainLayout title="Blog de Pólizas">
+  <section class="max-w-5xl mx-auto px-4 py-12">
+    <h1 class="text-5xl font-extrabold mb-12 text-center text-gray-900 dark:text-gray-100">
+      Blog de Pólizas
+    </h1>
+
+    <div class="grid md:grid-cols-2 gap-10">
+      {posts.map(post => (
+        <article
+          
+          class="p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow bg-white dark:bg-gray-800"
+        >
+          <a href={`/blog/${post.slug}`} class="block mb-4">
+            <h2 class="text-2xl font-semibold text-blue-700 dark:text-blue-400 hover:underline">
+              {post.title}
+            </h2>
+          </a>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">{post.description}</p>
+          <time class="text-sm text-gray-400 dark:text-gray-500">
+            {new Date(post.date).toLocaleDateString(undefined, {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </time>
+        </article>
+      ))}
+    </div>
+  </section>
+</MainLayout>

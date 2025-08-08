@@ -1,8 +1,21 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "strict": false
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"]
+    }
+    // "jsx" y "jsxImportSource" eliminados aquí
   },
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "types/**/*",
+    "dist/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
