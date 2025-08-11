@@ -10,28 +10,26 @@ interface MarkdownModule {
   Content: any;
 }
 
+// Generar rutas para todos los posts
 export async function getStaticPaths() {
   const posts = import.meta.glob('../../content/polizas/*.md', { eager: true });
-
-  return Object.entries(posts).map(([path]) => {
+  
+  return Object.keys(posts).map((path) => {
     const slug = path.split('/').pop()!.replace('.md', '');
     return { params: { slug } };
   });
 }
 
+// Obtener el slug de la URL
 const { slug } = Astro.params;
 
+// Cargar el post correspondiente
 const posts = import.meta.glob('../../content/polizas/*.md', { eager: true });
+const postModule = posts[`../../content/polizas/${slug}.md`] as MarkdownModule;
 
-const postEntry = Object.entries(posts).find(([path]) =>
-  path.includes(`${slug}.md`)
-);
-
-if (!postEntry) {
+if (!postModule) {
   throw new Error(`Post no encontrado: ${slug}`);
 }
-
-const postModule = postEntry[1] as MarkdownModule;
 ---
 
 <MainLayout title={postModule.frontmatter.title}>

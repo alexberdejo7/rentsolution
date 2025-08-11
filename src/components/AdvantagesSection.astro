@@ -1,21 +1,23 @@
 ---
-// VentajasSection.astro - Mobile Touch Optimized
+// VentajasSection.astro - Mobile Touch Optimized con mejoras de accesibilidad
 const cards = [
   {
     n: '01',
-    title: 'Mision',
+    title: 'Misión',
     text: 'Ser el despacho líder y referente en protección jurídica de arrendamientos, reconocido por nuestra eficacia, profesionalismo y la tranquilidad que brindamos a nuestros clientes.',
     img: '../../images/office.jpg',
     overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
-    textColor: 'group-[.active]:text-blue-100'
+    textColor: 'group-[.active]:text-blue-100',
+    alt: 'Oficina moderna con equipo de trabajo reunido'
   },
   {
     n: '02',
-    title: 'Vision',
+    title: 'Visión',
     text: 'Proporcionar soluciones jurídicas integrales en materia de arrendamiento, a través de la emisión y gestión de pólizas jurídicas que salvaguardan los intereses de propietarios e inquilinos.',
     img: '../../images/vision.jpg',
     overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
-    textColor: 'group-[.active]:text-indigo-100'
+    textColor: 'group-[.active]:text-indigo-100',
+    alt: 'Ciudad iluminada al atardecer representando visión de futuro'
   },
   {
     n: '03',
@@ -23,219 +25,215 @@ const cards = [
     text: 'Confianza, eficacia, profesionalismo, transparencia y compromiso. Actuamos con honestidad y rapidez, comunicando siempre con claridad y protegiendo tus derechos y arrendamientos como propios.',
     img: '../../images/valores.jpg',
     overlay: 'from-midnight/60 via-blue-800/60 to-blue-900/60',
-    textColor: 'group-[.active]:text-purple-100'
+    textColor: 'group-[.active]:text-purple-100',
+    alt: 'Manos unidas simbolizando valores y colaboración'
   }
 ];
 ---
 
-<section id="ventajas" class="bg-gradient-to-br from-slate-50 to-blue-50/30 py-16 px-4 md:px-8">
-  <div data-aos="fade-zoom-in"
-     data-aos-duration="600" class="max-w-5xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 class="text-2xl md:text-4xl font-raleway font-bold text-midnight mb-3 leading-tight">
+<section 
+  id="ventajas" 
+  class="bg-gradient-to-br from-slate-50 to-blue-50/30 py-16 px-4 md:px-8"
+  aria-labelledby="ventajas-title"
+>
+  <div data-aos="fade-zoom-in" data-aos-duration="600" class="max-w-5xl mx-auto">
+    
+    <header class="text-center mb-12">
+      <h2 
+        id="ventajas-title" 
+        class="text-2xl md:text-4xl font-raleway font-bold text-midnight mb-3 leading-tight"
+      >
         Confíe en
         <span class="text-dorado-secundario">RentSolution</span>
       </h2>
-      <p class="text-sm font-poppins md:text-lg font-thin text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      <p 
+        class="text-sm font-poppins md:text-lg font-thin text-gray-600 max-w-3xl mx-auto leading-relaxed"
+      >
         Protección integral para su propiedad
       </p>
-    </div>
+    </header>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 p-2">
       {cards.map((card, index) => (
-        <div class={`group relative bg-white rounded-xl shadow-lg shadow-midnight 
-                    hover:shadow-xl transition-all duration-500 overflow-hidden border border-slate-200/50 
-                    w-full min-h-[320px] flex flex-col cursor-pointer touch-manipulation
-                    card-interactive`}
-             data-card={index}>
+        <article
+          class={`group relative bg-white rounded-xl shadow-lg shadow-midnight 
+                  hover:shadow-xl transition-all duration-500 overflow-hidden border border-slate-200/50 
+                  w-full min-h-[320px] flex flex-col cursor-pointer touch-manipulation
+                  card-interactive`}
+          data-card={index}
+          role="button"
+          tabindex="0"
+          aria-pressed="false"
+          aria-label={`${card.title}: ${card.text}`}
+        >
           
-          {/* Background Image with Overlay */}
+          {/* Imagen de fondo accesible */}
           <div class="absolute inset-0 opacity-0 
                       group-hover:opacity-100 group-[.active]:opacity-100
-                      transition-opacity duration-700 ease-out card-overlay">
-            <div class="absolute inset-0 bg-cover bg-center 
+                      transition-opacity duration-700 ease-out card-overlay"
+               aria-hidden="true"
+          >
+            <div 
+              class="absolute inset-0 bg-cover bg-center 
                         scale-110 group-hover:scale-100 group-[.active]:scale-100
                         transition-transform duration-700 ease-out" 
-                 style={`background-image: url('${card.img}')`}>
+              style={`background-image: url('${card.img}')`}
+              role="img"
+              aria-label={card.alt}
+            >
             </div>
             <div class={`absolute inset-0 bg-gradient-to-br ${card.overlay}`}></div>
           </div>
 
-          {/* Content */}
+          {/* Contenido */}
           <div class="relative z-10 p-4 flex flex-col justify-between h-full 
                       text-midnight group-hover:text-white group-[.active]:text-white
                       transition-colors duration-500 card-content">
             <div>
               <div class="flex items-start justify-between mb-2">
-                <div class="text-xl md:text-3xl font-montserrat font-extrabold 
-                           text-slate-500 group-hover:text-white/60 group-[.active]:text-white/60
-                           transition-colors duration-500 card-number">
+                <span 
+                  class="text-xl md:text-3xl font-montserrat font-extrabold 
+                         text-slate-500 group-hover:text-white/60 group-[.active]:text-white/60
+                         transition-colors duration-500 card-number"
+                  aria-hidden="true"
+                >
                   {card.n}
-                </div>
+                </span>
               </div>
               
-              <h3 class="text-md font-raleway font-extrabold mb-1 
-                         text-dorado-secundario group-hover:text-white group-[.active]:text-white
-                         transition-colors duration-500 leading-tight card-title">
+              <h3 
+                class="text-md font-raleway font-extrabold mb-1 
+                       text-dorado-secundario group-hover:text-white group-[.active]:text-white
+                       transition-colors duration-500 leading-tight card-title"
+              >
                 {card.title}
               </h3>
               
-              <p class={`text-sm mt-2 font-poppins text-balance font-light 
+              <p 
+                class={`text-sm mt-2 font-poppins text-balance font-light 
                          text-midnight transition-colors duration-500 leading-relaxed
-                         group-hover:text-white group-[.active]:text-white ${card.textColor} card-text`}>
+                         group-hover:text-white group-[.active]:text-white ${card.textColor} card-text`}
+              >
                 {card.text}
               </p>
             </div>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   </div>
 </section>
 
 <script>
-  // Enhanced mobile touch interaction
   function initCardInteractions() {
     const cards = document.querySelectorAll('.card-interactive');
     let activeCard = null;
     let touchTimeout = null;
-
-    // Detectar si es dispositivo táctil
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    cards.forEach((card, index) => {
-      // Para dispositivos táctiles
+    cards.forEach((card) => {
       if (isTouchDevice) {
-        // Touch events
         card.addEventListener('touchstart', (e) => {
           e.preventDefault();
           clearTimeout(touchTimeout);
-          
-          // Desactivar otras tarjetas
-          cards.forEach(c => c.classList.remove('active'));
-          
-          // Activar tarjeta actual
+          cards.forEach(c => {
+            c.classList.remove('active');
+            c.setAttribute('aria-pressed', 'false');
+          });
           card.classList.add('active');
+          card.setAttribute('aria-pressed', 'true');
           activeCard = card;
         }, { passive: false });
 
         card.addEventListener('touchend', (e) => {
           e.preventDefault();
-          
-          // Mantener activa por un momento para ver la animación
           touchTimeout = setTimeout(() => {
             if (activeCard === card) {
               card.classList.remove('active');
+              card.setAttribute('aria-pressed', 'false');
               activeCard = null;
             }
-          }, 2000); // 2 segundos
+          }, 2000);
         }, { passive: false });
 
-        // Click alternativo para móviles
         card.addEventListener('click', (e) => {
           e.preventDefault();
-          
-          if (card.classList.contains('active')) {
-            card.classList.remove('active');
-            activeCard = null;
-          } else {
-            cards.forEach(c => c.classList.remove('active'));
+          const isActive = card.classList.contains('active');
+          cards.forEach(c => {
+            c.classList.remove('active');
+            c.setAttribute('aria-pressed', 'false');
+          });
+          if (!isActive) {
             card.classList.add('active');
+            card.setAttribute('aria-pressed', 'true');
             activeCard = card;
-            
-            // Auto-desactivar después de 3 segundos
             clearTimeout(touchTimeout);
             touchTimeout = setTimeout(() => {
               card.classList.remove('active');
+              card.setAttribute('aria-pressed', 'false');
               activeCard = null;
             }, 3000);
           }
         });
       }
-      
-      // Para dispositivos de escritorio mantener hover normal
+
       if (!isTouchDevice) {
         card.addEventListener('mouseenter', () => {
-          cards.forEach(c => c.classList.remove('active'));
+          cards.forEach(c => {
+            c.classList.remove('active');
+            c.setAttribute('aria-pressed', 'false');
+          });
         });
       }
     });
 
-    // Cerrar tarjeta activa al tocar fuera
     document.addEventListener('touchstart', (e) => {
       if (activeCard && !activeCard.contains(e.target)) {
         activeCard.classList.remove('active');
+        activeCard.setAttribute('aria-pressed', 'false');
         activeCard = null;
         clearTimeout(touchTimeout);
       }
     });
 
-    // Cerrar con tecla Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && activeCard) {
         activeCard.classList.remove('active');
+        activeCard.setAttribute('aria-pressed', 'false');
         activeCard = null;
         clearTimeout(touchTimeout);
       }
     });
   }
 
-  // Inicializar cuando el DOM esté listo
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initCardInteractions);
   } else {
     initCardInteractions();
   }
-
-  // Re-inicializar en navegación SPA (para Astro con view transitions)
   document.addEventListener('astro:page-load', initCardInteractions);
 </script>
 
 <style>
-  /* Mejoras adicionales para móvil */
   .card-interactive {
     -webkit-tap-highlight-color: transparent;
     user-select: none;
   }
-
-  /* Estados activos para móvil */
   .card-interactive.active {
     transform: scale(0.98);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
-
-  .card-interactive.active .card-overlay {
-    opacity: 1;
-  }
-
+  .card-interactive.active .card-overlay { opacity: 1; }
   .card-interactive.active .card-content,
   .card-interactive.active .card-title,
   .card-interactive.active .card-text,
-  .card-interactive.active .card-number {
-    color: white;
-  }
-
-  .card-interactive.active .card-number {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  /* Animación de escala para el fondo */
-  .card-interactive.active .card-overlay > div:first-child {
-    transform: scale(1);
-  }
-
-  /* Responsive improvements */
+  .card-interactive.active .card-number { color: white; }
+  .card-interactive.active .card-number { color: rgba(255, 255, 255, 0.6); }
+  .card-interactive.active .card-overlay > div:first-child { transform: scale(1); }
   @media (max-width: 640px) {
-    .card-interactive {
-      min-height: 280px;
-    }
-    
-    .card-interactive.active {
-      transform: scale(0.99);
-    }
+    .card-interactive { min-height: 280px; }
+    .card-interactive.active { transform: scale(0.99); }
   }
-
-  /* Mejorar accesibilidad */
   .card-interactive:focus-visible {
     outline: 2px solid #3b82f6;
     outline-offset: 2px;
