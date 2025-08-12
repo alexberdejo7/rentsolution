@@ -32,10 +32,14 @@ const serviceItems = [
   <div class="absolute inset-0 bg-midnight/15 z-0"></div>
   <!-- ✅ Logo decorativo en escritorio -->
   <img
-    src="../../images/LOGORENT.webp"
-    alt="Logo decorativo"
-    class="brightness-105 absolute  top-10 right-10 w-44 h-40 hidden md:block z-30"
-  />
+  src="../../images/LOGORENT.webp"
+  alt="Logo decorativo"
+  width="1080" height="1069"
+  class="brightness-105 absolute top-10 right-10 w-44 h-auto hidden md:block z-30"
+  fetchpriority="high"
+/>
+
+
 
   <div class="absolute inset-0 z-0">
     <div
@@ -139,9 +143,10 @@ const serviceItems = [
           </a>
         </div>
 
-        <section
+      <section
           class="lg:mt-12 mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-2 lg:gap-x-3 xl:gap-3 md:gap-7 sm:gap-4 max-w-[260px] sm:max-w-lg md:max-w-2xl lg:min-w-[1170px] xl:min-w-[1520px]"
         >
+
           {serviceItems.map((item) => (
             <div
               class="group flex items-center max-w-[200px] gap-3 p-1 rounded-lg 
