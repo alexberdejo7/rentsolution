@@ -10,57 +10,78 @@ interface Service {
 const servicesData: Service[] = [
   {
     title: "Pólizas Jurídicas",
-    description: "Protección integral para propietarios y arrendatarios con cobertura completa ante riesgos de impago y daños.",
+    description: "Protección integral para propietarios y arrendatarios ante riesgos de impago, daños y conflictos legales.",
     icon: "../../images/contrato.webp",
-    iconBgClass: "bg-azul-primario/10",
-    gradient: "from-azul-primario to-azul-dos",
-    features: ["Falta de pagos cubierta", "Daños contra el patrimonio", "Protección al arrendatario incluida"],
+    iconBgClass: "bg-dorado-secundario/10",
+    gradient: "from-dorado-secundario to-azul-primario",
+    features: [
+      "Cobertura ante falta de pagos",
+      "Protección contra daños patrimoniales",
+      "Defensa al arrendatario"
+    ],
   },
   {
     title: "Investigación de Inquilino y Obligado Solidario",
-    description: "Verificación exhaustiva para garantizar la seguridad de tu inversión antes de firmar cualquier contrato.",
+    description: "Análisis detallado para asegurar que tu inquilino o aval sea confiable antes de firmar.",
     icon: "../../images/lupaa.webp",
-    iconBgClass: "bg-dorado-secundario/10",
-    gradient: "from-dorado-secundario to-azul-primario",
-    features: ["Historial crediticio detallado", "Análisis de arrendamientos previos", "Análisis de solvencia económica"],
-  },
-  {
-    title: "Resolución de Conflictos",
-    description: "Manejo especializado de disputas legales y procesos de recuperación de propiedades o adeudos.",
-    icon: "../../images/candado.webp",
     iconBgClass: "bg-azul-shade/10",
     gradient: "from-azul-shade to-azul-shadedos",
-    features: ["Trámites de desocupación y entrega", "Mediación y arbitraje", "Recuperación judicial de adeudos"],
+    features: [
+      "Historial crediticio y antecedentes",
+      "Revisión de arrendamientos previos",
+      "Análisis de solvencia económica"
+    ],
   },
   {
-  title: "Asesoría Preventiva",
-  description: "Evita conflictos legales futuros con orientación experta desde el inicio de cualquier proceso jurídico.",
-  icon: "../../images/escudo.webp",
-  iconBgClass: "bg-lime-400/10",
-  gradient: "from-dorado-secundario to-azul-primario",
-  features: [
-    "Prevención de litigios",
-    "Redacción y revisión de contratos",
-    "Cumplimiento normativo"
-  ],
-},
-{
-  title: "Derecho Corporativo y Empresarial",
-  description: "Asesoría integral a empresas en constitución, cumplimiento legal, contratos y procesos de fusión.",
-  icon: "../../images/derecho.webp",
-  iconBgClass: "bg-indigo-400/10",
-  gradient: "from-azul-shade to-azul-shadedos",
-  features: [
-    "Constitución y disolución de sociedades",
-    "Contratos comerciales y laborales",
-    "Gobierno corporativo y poderes legales",
-    "Protección de datos personales",
-
-  ],
-}
-
-
+    title: "Resolución de Conflictos y Litigios",
+    description: "Defensa legal especializada en disputas relacionadas con arrendamientos, contratos y recuperación de propiedades.",
+    icon: "../../images/candado.webp",
+    iconBgClass: "bg-indigo-400/10",
+    gradient: "from-azul-shade to-azul-shadedos",
+    features: [
+      "Juicios especiales de arrendamiento",
+      "Desocupación y entrega de inmuebles",
+      "Recuperación judicial de adeudos"
+    ],
+  },
+  {
+    title: "Derecho Civil",
+    description: "Representación en litigios y asesoría en asuntos de contratos, inmuebles y procesos judiciales civiles.",
+    icon: "../../images/contrato.webp",
+    iconBgClass: "bg-azul-primario/10",
+    gradient: "from-azul-primario to-azul-dos",
+    features: [
+      "Contratos e incumplimientos",
+      "Asuntos inmobiliarios y regularización",
+      "Juicios hipotecarios y especiales"
+    ],
+  },
+  {
+    title: "Derecho Corporativo y Empresarial",
+    description: "Asesoría integral para empresas en su constitución, cumplimiento legal y operaciones estratégicas.",
+    icon: "../../images/lupaa.webp",
+    iconBgClass: "bg-lime-400/10",
+    gradient: "from-dorado-secundario to-azul-primario",
+    features: [
+      "Constitución y disolución de sociedades",
+      "Contratos comerciales y laborales",
+      "Gobierno corporativo y protección de datos"
+    ],
+  },
+  {
+    title: "Derecho Familiar",
+    description: "Acompañamiento legal en asuntos familiares con sensibilidad y firmeza para proteger tus derechos.",
+    icon: "../../images/candado.webp",
+    iconBgClass: "bg-pink-400/10",
+    gradient: "from-cyan-700 to-azul-primario",
+    features: [
+      "Divorcios y pensión alimenticia",
+      "Custodia, patria potestad y paternidad",
+      "Sucesiones y herencias"
+    ],
+  }
 ];
+
 ---
 
 <section 
@@ -128,11 +149,11 @@ const servicesData: Service[] = [
               </div>
             </div>
 
-            <h3 class="card-title text-md md:text-lg font-montserrat font-bold text-gray-800 mb-4 transition-colors duration-300 text-center"> 
+            <h3 class="card-title text-lg md:text-lg font-montserrat font-extrabold text-midnight mb-4 transition-colors duration-300 text-center"> 
               {service.title}
             </h3>
 
-            <p class="text-gray-600 mb-4 font-poppins font-thin text-xs md:text-[16px] leading-relaxed text-center"> 
+            <p class="text-azul-shadedos mb-4 font-poppins font-normal text-md md:text-[16px] leading-relaxed text-center"> 
               {service.description}
             </p>
 
@@ -145,7 +166,7 @@ const servicesData: Service[] = [
                       <path d="m9 11 3 3L22 4"/>
                     </svg>
                   </div>
-                  <span class="text-gray-700 text-sm md:text-[14px] font-poppins leading-relaxed">
+                  <span class="text-gray-800 text-[15px] md:text-[16px] font-poppins leading-relaxed">
                     {feature}
                   </span>
                 </li>
