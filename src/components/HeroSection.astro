@@ -29,15 +29,25 @@ const serviceItems = [
          bg-gradient-to-br from-midnight via-blue-950 to-blue-800
          bg-[url('/images/hero1.webp')] bg-center sm:bg-right bg-no-repeat bg-cover"
 >
-  <div class="absolute inset-0 bg-midnight/15 z-0"></div>
-  <!-- ✅ Logo decorativo en escritorio -->
+  <!-- ✅ Logos decorativos en escritorio (apilados y centrados) -->
+<div class="absolute top-10 right-10 hidden md:flex flex-col items-center gap-4 z-30">
   <img
-  src="../../images/LOGORENT.webp"
-  alt="Logo decorativo"
-  width="1080" height="1069"
-  class="brightness-105 absolute top-10 right-10 w-44 h-auto hidden md:block z-30"
-  fetchpriority="high"
-/>
+    src="../../images/LOGORENT.webp"
+    alt="Logo Rent Solutions"
+    width="1080" height="1069"
+    class="brightness-105 w-44 h-auto"
+    fetchpriority="high"
+  />
+
+  <img
+    src="../../images/corpo.jpeg"  
+    alt="Logo Corporativo Jurídico Morelos"
+    width="1080" height="1069"
+    class="rounded-full brightness-105 mt-7 w-36 h-auto"  
+    loading="eager"
+  />
+</div>
+
 
 
 
@@ -72,7 +82,7 @@ const serviceItems = [
           </span>
         </h1>
 
-        <div class="max-w-[405px] md:max-w-[620px] mb-8 sm:mb-10 text-left">
+        <div class="max-w-[405px] md:max-w-[470px] mb-8 sm:mb-10 text-left">
           <p class="text-xs text-balance font-poppins font-thin text-left sm:text-lg lg:text-md xl:text-lg text-blue-100/90 leading-relaxed">
             Brindamos <span class="text-dorado-secundario font-semibold">seguridad</span>,{' '}
             <span class="text-dorado-secundario font-semibold">respaldo legal</span> y{' '}
@@ -90,7 +100,7 @@ const serviceItems = [
                    hover:bg-gray-200 hover:text-azul-primario/90 
                    active:bg-gray-200 active:text-azul-primario/90 active:scale-[0.98]
                    transition-all duration-300 shadow-lg hover:shadow-xl active:shadow-xl
-                   w-fit min-w-[260px] touch-manipulation"
+                   w-fit min-w-[305px] touch-manipulation"
           >
             <span class="text-xs md:text-base sm:text-xs font-montserrat font-medium">Cotiza tu póliza</span>
             <svg
@@ -110,35 +120,18 @@ const serviceItems = [
             </svg>
           </a>
 
-          <a
-            href="#services"
-            class="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 
-                   rounded-2xl font-semibold bg-white/5 backdrop-blur-lg border border-white/50 
-                   text-white hover:text-black hover:bg-white/70 hover:border-black/40
-                   active:text-black active:bg-white/70 active:border-black/40 active:scale-[0.98]
-                   transition-all duration-300 shadow-lg w-fit min-w-[260px] touch-manipulation"
-          >
-            <span class="text-xs md:text-base sm:text-xs font-montserrat font-medium">Servicios</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="ml-2 transition-transform duration-300 group-hover:translate-x-1 group-active:translate-x-1"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 12h14" />
-              <path d="M12 5l7 7-7 7" />
-            </svg>
-          </a>
+          <a href="#services" class="group inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold bg-white/5 backdrop-blur-lg border border-white/50 text-white hover:text-black hover:bg-white/70 hover:border-black/40 active:text-black active:bg-white/70 active:border-black/40 active:scale-[0.98] transition-all duration-300 shadow-lg w-fit min-w-[260px] touch-manipulation">
+  <span class="text-xs md:text-base sm:text-xs font-montserrat font-medium">Servicios Corporativo Juridico Morelos</span>
+  <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 transition-transform duration-300 group-hover:translate-x-1 group-active:translate-x-1" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h14" />
+    <path d="M12 5l7 7-7 7" />
+  </svg>
+</a>
         </div>
 
       <section
-          class="lg:mt-12 mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-2 lg:gap-x-3 xl:gap-3 md:gap-7 sm:gap-4 max-w-[260px] sm:max-w-lg md:max-w-2xl lg:min-w-[1170px] xl:min-w-[1520px]"
+          class="lg:mt-12 mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-y-2 
+          lg:gap-x-3 xl:gap-3 md:gap-7 sm:gap-4 max-w-[305px] sm:max-w-lg md:max-w-2xl lg:min-w-[1170px] xl:min-w-[1520px]"
         >
 
           {serviceItems.map((item) => (
@@ -165,6 +158,16 @@ const serviceItems = [
           ))}
           
         </section>
+        <!-- ✅ Logo Corporativo en mobile (abajo) -->
+<div class="md:hidden w-full flex justify-center mt-8 pb-6">
+  <img
+    src="../../images/corpo.jpeg"
+    alt="Logo Corporativo Jurídico Morelos"
+    class="w-32 h-32 rounded-full object-cover brightness-105"
+    loading="lazy"
+  />
+</div>
+
       </div>
     </div>
   </div>
